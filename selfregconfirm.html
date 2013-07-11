@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Patron Self Registration Form</title>
+    <link rel="stylesheet" type="text/css" href="/screens/selfreg_style.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/screens/selfreg_style_print.css" media="print" />
+  </head>
+  <body>
+    <div id="confirm_wrapper">
+      <h2>Online Registration Confirmation</h2>
+      <p>Date registered:
+	<script type="text/javascript">
+	  var currentTime = new Date()
+	  var month = currentTime.getMonth() + 1
+	  var day = currentTime.getDate()
+	  var year = currentTime.getFullYear()
+	  document.write(month + "/" + day + "/" + year)
+	</script>
+      </p>
+      <p>Thanks for registering!</p>
+      <h3>
+<!--{name}-->
+      </h3>
+      <p>Please <strong>print this confirmation</strong> and bring it with the following documents to any Oakland Public Library within 14 days to pick up your card:</p>
+      <ul>
+	<li>Photo ID</li>
+	<li>Proof of address</li>
+      </ul>
+      <p> For children under 13, instead, a parent/Legal Guardian and child must both be present for the child to receive the card.</p>
+      <div id="bcTarget"></div>
+      <div class="confirm_button">
+	<input type="button" class="button white" value="Print Confirmation" onclick="printpage();">
+	<input class="button yellow" type="button" value="Close" onclick="startover();">
+      </div>
+    </div>
+  </body>
+  <script type="text/javascript" src="/screens/jquery.min.js"></script>
+  <script src="/screens/selfregconfirm_logic.js"></script>
+</html>
