@@ -2,7 +2,7 @@ $(document).ready(function() {
     // restart registration procedure after a long time out
     setTimeout(function(){
 	startover();
-    },300*1000); // units are in milliseconds
+    }, 120*1000); // units are in milliseconds
 });
 
 function log(m) {
