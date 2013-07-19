@@ -696,3 +696,17 @@ function get_jurisdiction_code(s) {
     else t = "192";
     return t;
 }
+
+var lang = 'eng';
+tdata = new Object();
+tdata.header={
+    eng:"Online Library Card Registration Form",
+    spa:"Formulario de Inscripción Card Library Online",
+    chi:"在线图书馆卡登记表"
+};
+
+// <script>msg('header');</script>
+function msg(id) {
+    document.write(tdata[id][lang]);
+}
+
