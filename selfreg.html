@@ -4,12 +4,22 @@
   <head>
     <title>Patron Self Registration Form</title>
     <link rel="stylesheet" type="text/css" href="/screens/selfreg_style.css" />
+    <!-- -->
+<meta name="google-translate-customization" content="9ca2e363a3aa518c-54c40d935381e27e-g0d9193d63f834acf-1a"></meta>
+    <!-- -->
   </head>
   <body>
     <div id="intro_header">
       <img class="inline" src="/screens/logo.png" />
       <h1 class="inline">Online Library Card Registration Form</h1>
     </div>
+      <!-- -->
+      <div id="google_translate_element"></div><script type="text/javascript">
+	function googleTranslateElementInit() {
+	new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false}, 'google_translate_element');
+	}
+      </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+      <!-- -->
     <div id="form_wrapper">
       <form id="selfreg" method="post" onsubmit="return try_submit();">
 	<!-- unable to submit form (using III tag {iferrmsg}) -->
@@ -244,7 +254,9 @@
 <!--{iferrmsg}-->
     <script type="text/javascript">
       // millennium will do this if form submission failed.
-      window.submit_error = true; // flag checked by selfreg_logic.js
+    if (window.location.hostname != 'localhost') {
+        window.submit_error = true; // flag checked by selfreg_logic.js
+    }
     </script>
 <!--{xif}-->
     <script src="/screens/jquery.min.js"></script>
