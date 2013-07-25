@@ -143,18 +143,17 @@
 	<!-- teen / adult specific form elements -->
 	<div id="form_teen_adult" class="hidden">
 	  <!-- identification -->
-	  <h3>Personal Identification Number</h3>
-	  <p>You may register using one of several identification types. Please select an identification type by clicking one of the buttons below, and then enter the number shown on your ID. For more information about the accepted types of identification, please see &ldquo;<a href="#" onclick="lightbox_open(acceptable_id());">What forms of identification are accepted?</a>&rdquo;</p>
+	  <h3>Identification</h3>
+	  <p>You may register using one of several identification types. Please select an identification type by clicking one of the buttons below, and then enter the number shown on your ID. For more information about the accepted types of identification, please see &ldquo;<a href="#" onclick="lightbox_open(acceptable_id());">What forms of identification are accepted?</a>&rdquo; Please see staff if you have ID not listed here.</p>
 	  <div id="id_types">
 	    <table>
 	      <tr>
 		<td><input type="radio" name="id_type" value="id_license">Driver's License</td>
 		<td><input type="radio" name="id_type" value="id_stateid">State Issued ID Card</td>
-		<td><input type="radio" name="id_type" value="id_ssn">Social Security Card</td>
 		<td><input type="radio" name="id_type" value="id_student">Student ID Card</td>
+		<td><input type="radio" name="id_type" value="id_resident">Permanent Resident Card</td>
 	      </tr>
 	      <tr>
-		<td><input type="radio" name="id_type" value="id_resident">Permanent Resident Card</td>
 		<td><input type="radio" name="id_type" value="id_matricula">Matricula Consular ID Card</td>
 		<td><input type="radio" name="id_type" value="id_cityid">Oakland City ID/Municipal City ID</td>
 		<td><input type="radio" name="id_type" value="id_passport">Passport</td>
@@ -179,7 +178,6 @@
 	  <!-- parent/guardian information -->
 	  <h3>Parent/Guardian Information</h3>
 	  <div id="guardian_wrapper">
-	    <p>You may register using one of several identification types. Please select an identification type by clicking one of the buttons below, and then enter the number shown on your ID. For more information about the accepted types of identification, please see &ldquo;<a href="#" onclick="lightbox_open(acceptable_id());">What forms of identification are accepted?</a>&rdquo;</p>
 	    <!-- name -->
 	    <p>
 	      <div id="guardian_last_name" class="inline">
@@ -198,11 +196,10 @@
 		<tr>
 		  <td><input type="radio" name="id_type" value="id_license">Driver's License</td>
 		  <td><input type="radio" name="id_type" value="id_stateid">State Issued ID Card</td>
-		  <td><input type="radio" name="id_type" value="id_ssn">Social Security Card</td>
 		  <td><input type="radio" name="id_type" value="id_student">Student ID Card</td>
+		  <td><input type="radio" name="id_type" value="id_resident">Permanent Resident Card</td>
 		</tr>
 		<tr>
-		  <td><input type="radio" name="id_type" value="id_resident">Permanent Resident Card</td>
 		  <td><input type="radio" name="id_type" value="id_matricula">Matricula Consular ID Card</td>
 		  <td><input type="radio" name="id_type" value="id_cityid">Oakland City ID/Municipal City ID</td>
 		  <td><input type="radio" name="id_type" value="id_passport">Passport</td>

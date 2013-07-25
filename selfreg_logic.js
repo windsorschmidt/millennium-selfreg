@@ -190,15 +190,6 @@ function validate_form() {
 	if (s.length == 0) {
 	    add_error("#guardian_first_name", "Please enter the parent/guardian's first name.");
 	}
-	// guardian identification
-	s = $('input:radio[name=id_type]:checked').val();
-	if (!s) {
-	    add_error("#guardian_id_types", "Please select an identification type.");
-	}
-	s = $('input[name=guardian_id_number]').val()
-	if (s.length == 0) {
-	    add_error("#guardian_id_number", "Please enter a valid identification number.");
-	}
     }
     // agreement
     if (!$('input[name=agreement]').is(':checked')) {
@@ -427,7 +418,7 @@ function show_form(form_id) {
 	set_required(["#last_name", "#first_name",
 		      "#home_address", "#home_city", "#home_zip", "#phone",
 		      "#guardian_last_name", "#guardian_first_name",
-		      "#guardian_id_number", "#agreement_box"]);
+		      "#agreement_box"]);
 	break;
     case 3:
 	log("displaying teen form");
@@ -549,7 +540,6 @@ function toTitleCase(str) {
 function acceptable_id() {
     a = ["Driver's License",
 	 "State Issued ID Card",
-	 "Social Security Card",
 	 "Student ID Card",
 	 "Permanent Resident Card",
 	 "Matricula Consular ID Card",
