@@ -528,7 +528,7 @@ function pad(n, width, z) {
 }
 
 function log(m) {
-    if (navigator.appName != 'Microsoft Internet Explorer') {
+    if (typeof console != "undefined") {
 	console.log(m)
     }
 }
