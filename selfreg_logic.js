@@ -158,7 +158,7 @@ function validate_form() {
     }
     // zip code
     s = $('input[name=home_zip]').val().replace(/\s+/g, '');
-    if ((s.length != 5)|(s[0] != '9')) {
+    if ((s.length != 5)|(s.charAt(0) != '9')) {
 	add_error("#home_zip", "Please enter a valid CA zip-code.");
     }
     // teens / adults only
