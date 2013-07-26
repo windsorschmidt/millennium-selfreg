@@ -361,7 +361,6 @@ function postproc_form() {
     // children only: transform parent/guardian info
     if (window.age_range == 2) {
 	// guardian identification
-	//s = $('input[name=guardian_id_number]').val()
 	s = form.elements["guardian_id_number"].value;
 	if (s.length > 0) {
 	    i = "|i " + form.elements["guardian_id_number"].value.toUpperCase() + " ";
@@ -384,7 +383,7 @@ function postproc_form() {
 	l = "|l " + form.elements["language"].value.toUpperCase();
 	field.value = field.value + l;
     }
-    form.appendChild(field); // should now contain everything in department field
+    form.appendChild(field); // done with ddepartment field
     // set pcode1 based on patron age range
     var form = document.getElementById("selfreg");
     var field = document.createElement("input");
