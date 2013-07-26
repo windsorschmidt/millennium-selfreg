@@ -338,18 +338,35 @@ function postproc_form() {
 	field.value = tempstring.toUpperCase();
 	form.appendChild(field);
     }
+    // children only: transform identification
+    if (window.age_range == 2) {
+	// no unique ID is gathered from a child's user info, but since
+	// millennium still needs a unique value if duplicate ID checking
+	// is enabled, we create a dummy value based on a timestamp
+	var field = document.createElement("input");
+	field.name = "uuniversityID";
+	field.type = "hidden";
+	field.value = "NOT_AN_ID_" + new Date().getTime();
+	form.appendChild(field);
+    }
     // store extra info in overloaded department/org-id field...
     var field = document.createElement("input");
     field.name = "ddepartment";
     field.type = "hidden";
-    // all patrons: type of id used to populate uuniversityID field
-    t = $('input:radio[name=id_type]:checked').val().toUpperCase() + " ";
-    field.value = "|t " + t;
+    // type of identification given (guardian's ID for child patrons)
+    if ($('input:radio[name=id_type]:checked').val() != undefined) {
+	t = $('input:radio[name=id_type]:checked').val().toUpperCase() + " ";
+	field.value = "|t " + t;
+    }
     // children only: transform parent/guardian info
     if (window.age_range == 2) {
-	// guardian identification #
-	i = "|i " + form.elements["guardian_id_number"].value.toUpperCase() + " ";
-	field.value = field.value + i;
+	// guardian identification
+	//s = $('input[name=guardian_id_number]').val()
+	s = form.elements["guardian_id_number"].value;
+	if (s.length > 0) {
+	    i = "|i " + form.elements["guardian_id_number"].value.toUpperCase() + " ";
+	    field.value = field.value + i;
+	}
 	// school
 	if (form.elements["school"].value != "") {
 	    s = "|s " + form.elements["school"].value.toUpperCase() + " ";
@@ -459,26 +476,20 @@ function debug_print_form() {
     log("F051birthdate: " + form.elements["F051birthdate"].value);
     log("nfirst: " + form.elements["nfirst"].value);
     // middle name optional
-    if(document.getElementById("nmiddle")) {
+    if (form.elements["middle_initial"].value != "") {
 	log("nmiddle: " + form.elements["nmiddle"].value);
     }
     log("nlast: " + form.elements["nlast"].value);
     log("stre_aaddress: " + form.elements["stre_aaddress"].value);
     log("city_aaddress: " + form.elements["city_aaddress"].value);
     // mailing address optional
-    if(form.elements["stre_haddress2"].value != "") {
+    if (form.elements["mailing_address"].value != "") {
 	log("stre_haddress2: " + form.elements["stre_haddress2"].value);
-    }
-    // mailing address optional
-    if(form.elements["city_haddress2"].value != "") {
 	log("city_haddress2: " + form.elements["city_haddress2"].value);
     }
     log("F046pcode3: " + form.elements["F046pcode3"].value);
     log("tphone1: " + form.elements["tphone1"].value);
-    // teens / adults only
-    if(form.elements["uuniversityID"].value != "") {
-	log("uuniversityID: " + form.elements["uuniversityID"].value);
-    }
+    log("uuniversityID: " + form.elements["uuniversityID"].value);
     log("zemailaddr: " + form.elements["zemailaddr"].value);
     log("ddepartment: " + form.elements["ddepartment"].value);
     log("F044pcode1: " + form.elements["F044pcode1"].value);
