@@ -2,7 +2,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <html>
   <head>
-    <title>Patron Self Registration Form</title>
+    <title>Online Library Card Registration Form</title>
     <link rel="stylesheet" type="text/css" href="/screens/selfreg_style.css" />
   </head>
   <body>
@@ -10,7 +10,7 @@
     <script src="/screens/selfreg_logic.js"></script>
     <div id="intro_header">
       <img class="inline" src="/screens/logo.png" />
-      <h1 class="inline">Online Library Card Registration Form</h1>
+      <h1 class="inline"><script>msg('header');</script></h1>
     </div>
     <div id="form_wrapper">
       <form id="selfreg" method="post" onsubmit="return try_submit();">
@@ -135,7 +135,7 @@
 	<!-- teen / adult specific form elements -->
 	<div id="form_teen_adult" class="hidden">
 	  <!-- identification -->
-	  <h3>Personal Identification Number</h3>
+	  <h3>Identification</h3>
 	  <p>You may register using one of several identification types. Please select an identification type by clicking one of the buttons below, and then enter the number shown on your ID. For more information about the accepted types of identification, please see &ldquo;<a href="#" onclick="lightbox_open(acceptable_id());">What forms of identification are accepted?</a>&rdquo;</p>
 	  <div id="id_types">
 	    <table>

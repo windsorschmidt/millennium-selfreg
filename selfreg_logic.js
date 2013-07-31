@@ -697,16 +697,220 @@ function get_jurisdiction_code(s) {
     return t;
 }
 
-var lang = 'eng';
-tdata = new Object();
-tdata.header={
-    eng:"Online Library Card Registration Form",
-    spa:"Formulario de Inscripción Card Library Online",
-    chi:"在线图书馆卡登记表"
-};
-
 // <script>msg('header');</script>
 function msg(id) {
     document.write(tdata[id][lang]);
 }
 
+var lang = 'eng';
+tdata = new Object();
+tdata.header = {
+    eng:"Online Library Card Registration Form",
+    spa:"Formulario de Inscripción Card Library Online",
+    chi:"在线图书馆卡登记表"
+};
+tdata.enter_birthdate = {
+    eng:"Please Enter Your Birth Date",
+    spa:"",
+    chi:"",
+};
+tdata.adult_header = {
+    eng:"Adult Library Card Registration (age 18 and above)",
+    spa:"",
+    chi:"",
+};
+tdata.teen_header = {
+    eng:"",
+    spa:"",
+    chi:"",
+};
+tdata.child_header = {
+    eng:"",
+    spa:"",
+    chi:"",
+};
+tdata.month = {
+    eng:"Month",
+    spa:"",
+    chi:"",
+};
+tdata.day = {
+    eng:"Day",
+    spa:"",
+    chi:"",
+};
+tdata.year = {
+    eng:"Year",
+    spa:"",
+    chi:"",
+};
+tdata.submit = {
+    eng:"Submit",
+    spa:"",
+    chi:"",
+};
+tdata.start_over = {
+    eng:"Start Over",
+    spa:"",
+    chi:"",
+};
+tdata.disability_note = {
+    eng:"If you have a disability, ask Library staff for an Extended Services form.",
+    spa:"",
+    chi:"",
+};
+tdata.pickup_note = {
+    eng:"Pick up your library card in person from your nearest branch within 14 days of applying with the following documents:",
+    spa:"",
+    chi:"",
+};
+tdata.photo_id = {
+    eng:"Photo ID",
+    spa:"",
+    chi:"",
+};
+tdata.proof_of_address = {
+    eng:"Proof of address",
+    spa:"",
+    chi:"",
+};
+tdata.required = {
+    eng:"required field",
+    spa:"",
+    chi:"",
+};
+tdata.name = {
+    eng:"Name",
+    spa:"",
+    chi:"",
+};
+tdata.last_name = {
+    eng:"Last Name",
+    spa:"",
+    chi:"",
+};
+tdata.first_name = {
+    eng:"First Name",
+    spa:"",
+    chi:"",
+};
+tdata.middle_initial = {
+    eng:"Middle Initial",
+    spa:"",
+    chi:"",
+};
+tdata.home_address = {
+    eng:"Home Address",
+    spa:"",
+    chi:"",
+};
+tdata.street = {
+    eng:"Street",
+    spa:"",
+    chi:"",
+};
+tdata.apt = {
+    eng:"Apt.#",
+    spa:"",
+    chi:"",
+};
+tdata.city = {
+    eng:"City",
+    spa:"",
+    chi:"",
+};
+tdata.zip = {
+    eng:"CA. Zip Code",
+    spa:"",
+    chi:"",
+};
+tdata.phone_note = {
+    eng:"(including area code)",
+    spa:"",
+    chi:"",
+};
+tdata.mailing_address = {
+    eng:"Mailing Address (if different from home address)",
+    spa:"",
+    chi:"",
+};
+tdata.email = {
+    eng:"E-Mail Address",
+    spa:"",
+    chi:"",
+};
+tdata.pref_lang = {
+    eng:"Preferred Language",
+    spa:"",
+    chi:"",
+};
+tdata.pref_lang_note = {
+    eng:"If you prefer to read in a language other than English, please indicate that language here",
+    spa:"",
+    chi:"",
+};
+tdata.ident = {
+    eng:"Identification",
+    spa:"",
+    chi:"",
+};
+tdata.ident_note = {
+    eng:"You may register using one of several identification types. Please select an identification type by clicking one of the buttons below, and then enter the number shown on your ID. For more information about the accepted types of identification, please see &ldquo;<a href=\"#\" onclick=\"lightbox_open(acceptable_id());\">What forms of identification are accepted?</a>&rdquo;",
+    spa:"",
+    chi:"",
+};
+tdata.ident_number = {
+    eng:"ID Number",
+    spa:"",
+    chi:"",
+};
+tdata.drivers_license = {
+    eng:"Driver's License",
+    spa:"",
+    chi:"",
+};
+tdata.resident_card = {
+    eng:"Permanent Resident Card",
+    spa:"",
+    chi:"",
+};
+tdata.state_id = {
+    eng:"State Issued ID Card",
+    spa:"",
+    chi:"",
+};
+tdata.matricula = {
+    eng:"Matricula Consular ID Card",
+    spa:"",
+    chi:"",
+};
+tdata.city_id = {
+    eng:"Oakland City ID/Municipal City ID",
+    spa:"",
+    chi:"",
+};
+tdata.student_id = {
+    eng:"Student ID Card",
+    spa:"",
+    chi:"",
+};
+tdata.passport = {
+    eng:"Passport",
+    spa:"",
+    chi:"",
+};
+tdata.agreement = {
+    eng:"Online Agreement",
+    spa:"",
+    chi:"",
+};
+tdata.agree = {
+    eng:"I agree to follow all library rules.",
+    spa:"",
+    chi:"",
+};
+tdata.agreement_note = {
+    eng:"I agree to follow all library rules, pay all fines and fees, and give immediate notice of any change of address, phone number, or loss of library card. I understand that I am responsible for all items checked out on this card, that some items such as DVDs and videos have higher fines, and that I am the only authorized user of this card.",
+    spa:"",
+    chi:"",
+};
