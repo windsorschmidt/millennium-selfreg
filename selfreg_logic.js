@@ -699,10 +699,14 @@ function get_jurisdiction_code(s) {
 
 // <script>msg('header');</script>
 function msg(id) {
-    document.write(tdata[id][lang]);
+    document.write(msgval(id));
 }
 
-var lang = 'eng';
+function msgval(id) {
+    return tdata[id][lang];
+}
+
+var lang = 'chi';
 tdata = new Object();
 tdata.header = {
     eng:"Online Library Card Registration Form",
@@ -712,205 +716,300 @@ tdata.header = {
 tdata.enter_birthdate = {
     eng:"Please Enter Your Birth Date",
     spa:"",
-    chi:"",
+    chi:"???",
 };
-tdata.adult_header = {
+tdata.header_adult = {
     eng:"Adult Library Card Registration (age 18 and above)",
     spa:"",
-    chi:"",
+    chi:"???",
 };
-tdata.teen_header = {
-    eng:"",
+tdata.header_teen = {
+    eng:"Teen Library Card Registration (ages 13-17)",
     spa:"",
-    chi:"",
+    chi:"???",
 };
-tdata.child_header = {
-    eng:"",
+tdata.header_child = {
+    eng:"Child Library Card Registration (ages 5-12)",
     spa:"",
-    chi:"",
+    chi:"???",
 };
 tdata.month = {
     eng:"Month",
     spa:"",
-    chi:"",
+    chi:"???",
+};
+tdata.january = {
+    eng:"January",
+    spa:"",
+    chi:"???",
+};
+tdata.february = {
+    eng:"February",
+    spa:"",
+    chi:"???",
+};
+tdata.march = {
+    eng:"March",
+    spa:"",
+    chi:"???",
+};
+tdata.april = {
+    eng:"April",
+    spa:"",
+    chi:"???",
+};
+tdata.may = {
+    eng:"May",
+    spa:"",
+    chi:"???",
+};
+tdata.june = {
+    eng:"June",
+    spa:"",
+    chi:"???",
+};
+tdata.july = {
+    eng:"July",
+    spa:"",
+    chi:"???",
+};
+tdata.august = {
+    eng:"August",
+    spa:"",
+    chi:"???",
+};
+tdata.september = {
+    eng:"September",
+    spa:"",
+    chi:"???",
+};
+tdata.october = {
+    eng:"October",
+    spa:"",
+    chi:"???",
+};
+tdata.november = {
+    eng:"November",
+    spa:"",
+    chi:"???",
+};
+tdata.december = {
+    eng:"December",
+    spa:"",
+    chi:"???",
 };
 tdata.day = {
     eng:"Day",
     spa:"",
-    chi:"",
+    chi:"???",
 };
 tdata.year = {
     eng:"Year",
     spa:"",
-    chi:"",
+    chi:"???",
 };
 tdata.submit = {
     eng:"Submit",
     spa:"",
-    chi:"",
+    chi:"???",
 };
 tdata.start_over = {
     eng:"Start Over",
     spa:"",
-    chi:"",
+    chi:"???",
 };
 tdata.disability_note = {
     eng:"If you have a disability, ask Library staff for an Extended Services form.",
     spa:"",
-    chi:"",
+    chi:"???",
 };
-tdata.pickup_note = {
-    eng:"Pick up your library card in person from your nearest branch within 14 days of applying with the following documents:",
+tdata.pickup_note_adult = {
+    eng:"Pick up your library card in person from your nearest branch within 14 days of applying with the following documents:<ol><li>Photo ID</li><li>Proof of address</li></ol>",
     spa:"",
-    chi:"",
+    chi:"???",
 };
-tdata.photo_id = {
-    eng:"Photo ID",
+tdata.pickup_note_teen = {
+    eng:"Pick up your library card in person from your nearest branch within 14 days of applying with your photo ID, or the signature of a parent/legal guardian on a paper application if no ID is available.",
     spa:"",
-    chi:"",
+    chi:"???",
 };
-tdata.proof_of_address = {
-    eng:"Proof of address",
+tdata.pickup_note_child = {
+    eng:"Parent/Legal Guardian and child must both present themselves for the child to receive the card within 14 days of applying. Alternatively, you may print and fill out a <a href=\"http://www.oaklandlibrary.org/sites/default/files/uploads/OPL_Card_App_Eng_Kids_0.pdf\">paper application</a> for the child to receive a card without parent/legal guardian present.",
     spa:"",
-    chi:"",
+    chi:"???",
 };
 tdata.required = {
     eng:"required field",
     spa:"",
-    chi:"",
+    chi:"???",
 };
 tdata.name = {
     eng:"Name",
     spa:"",
-    chi:"",
+    chi:"???",
 };
 tdata.last_name = {
     eng:"Last Name",
     spa:"",
-    chi:"",
+    chi:"???",
 };
 tdata.first_name = {
     eng:"First Name",
     spa:"",
-    chi:"",
+    chi:"???",
 };
 tdata.middle_initial = {
     eng:"Middle Initial",
     spa:"",
-    chi:"",
+    chi:"???",
 };
 tdata.home_address = {
     eng:"Home Address",
     spa:"",
-    chi:"",
+    chi:"???",
 };
 tdata.street = {
     eng:"Street",
     spa:"",
-    chi:"",
+    chi:"???",
 };
 tdata.apt = {
     eng:"Apt.#",
     spa:"",
-    chi:"",
+    chi:"???",
 };
 tdata.city = {
     eng:"City",
     spa:"",
-    chi:"",
+    chi:"???",
 };
 tdata.zip = {
     eng:"CA. Zip Code",
     spa:"",
-    chi:"",
+    chi:"???",
+};
+tdata.phone = {
+    eng:"Telephone",
+    spa:"",
+    chi:"???",
 };
 tdata.phone_note = {
     eng:"(including area code)",
     spa:"",
-    chi:"",
+    chi:"???",
 };
 tdata.mailing_address = {
     eng:"Mailing Address (if different from home address)",
     spa:"",
-    chi:"",
+    chi:"???",
 };
 tdata.email = {
     eng:"E-Mail Address",
     spa:"",
-    chi:"",
+    chi:"???",
 };
 tdata.pref_lang = {
     eng:"Preferred Language",
     spa:"",
-    chi:"",
+    chi:"???",
 };
 tdata.pref_lang_note = {
     eng:"If you prefer to read in a language other than English, please indicate that language here",
     spa:"",
-    chi:"",
+    chi:"???",
+};
+tdata.parent_info = {
+    eng:"Parent/Guardian Identification",
+    spa:"",
+    chi:"???",
+};
+tdata.school = {
+    eng:"School",
+    spa:"",
+    chi:"???",
+};
+tdata.parent_note = {
+    eng:"You may register using one of several identification types. Please select an identification type by clicking one of the buttons below, and then enter the number shown on your ID. For more information about the accepted types of identification, please see &ldquo;<a href=\"#\" onclick=\"lightbox_open(acceptable_id());\">What forms of identification are accepted?</a>&rdquo;",
+    spa:"",
+    chi:"???",
 };
 tdata.ident = {
     eng:"Identification",
     spa:"",
-    chi:"",
+    chi:"???",
 };
 tdata.ident_note = {
     eng:"You may register using one of several identification types. Please select an identification type by clicking one of the buttons below, and then enter the number shown on your ID. For more information about the accepted types of identification, please see &ldquo;<a href=\"#\" onclick=\"lightbox_open(acceptable_id());\">What forms of identification are accepted?</a>&rdquo;",
     spa:"",
-    chi:"",
-};
-tdata.ident_number = {
-    eng:"ID Number",
-    spa:"",
-    chi:"",
+    chi:"???",
 };
 tdata.drivers_license = {
     eng:"Driver's License",
     spa:"",
-    chi:"",
+    chi:"???",
 };
 tdata.resident_card = {
     eng:"Permanent Resident Card",
     spa:"",
-    chi:"",
+    chi:"???",
 };
 tdata.state_id = {
     eng:"State Issued ID Card",
     spa:"",
-    chi:"",
+    chi:"???",
 };
 tdata.matricula = {
     eng:"Matricula Consular ID Card",
     spa:"",
-    chi:"",
+    chi:"???",
 };
 tdata.city_id = {
     eng:"Oakland City ID/Municipal City ID",
     spa:"",
-    chi:"",
+    chi:"???",
 };
 tdata.student_id = {
     eng:"Student ID Card",
     spa:"",
-    chi:"",
+    chi:"???",
 };
 tdata.passport = {
     eng:"Passport",
     spa:"",
-    chi:"",
+    chi:"???",
+};
+tdata.ident_number = {
+    eng:"ID Number",
+    spa:"",
+    chi:"???",
 };
 tdata.agreement = {
     eng:"Online Agreement",
     spa:"",
-    chi:"",
+    chi:"???",
+};
+tdata.agreement_note_adult_teen_adult = {
+    eng:"I agree to follow all library rules, pay all fines and fees, and give immediate notice of any change of address, phone number, or loss of library card. I understand that I am responsible for all items checked out on this card, that some items such as DVDs and videos have higher fines, and that I am the only authorized user of this card.",
+    spa:"",
+    chi:"???",
+};
+tdata.agreement_note_child = {
+    eng:"As parent/Legal Guardian, I understand and agree that:<br /><ul><li>The library may only give the card to my child.  Only my child may use his or her card.</li><li>The library allows my child to use any materials, from any section.   The library cannot limit the types of books or movies my child checks out, even if I ask.</li><li>My child’s library record (like mine) is private by law. The library cannot tell me what my child has checked out, except when a fine is owed.</li><li>Some materials have fines if they are returned late, and all lost or damaged materials have fines.  I am responsible for any fines on my child’s record.</li><li>My child can use computers at the library for up to one hour per day.  The library does not limit what children can look at, and does not supervise children on the computer.</li><li>If my child is younger than eight years old, he or she must be closely supervised by a parent or responsible caregiver, and may not be left unattended in the library.</li></ul>",
+    spa:"",
+    chi:"???",
 };
 tdata.agree = {
     eng:"I agree to follow all library rules.",
     spa:"",
-    chi:"",
+    chi:"???",
 };
-tdata.agreement_note = {
-    eng:"I agree to follow all library rules, pay all fines and fees, and give immediate notice of any change of address, phone number, or loss of library card. I understand that I am responsible for all items checked out on this card, that some items such as DVDs and videos have higher fines, and that I am the only authorized user of this card.",
+tdata.submit_error = {
+    eng:"Submission Error",
     spa:"",
-    chi:"",
+    chi:"???",
+};
+tdata.submit_error_note = {
+    eng:"We were unable to process your form. Please contact a librarian for assistance.",
+    spa:"",
+    chi:"???",
 };
