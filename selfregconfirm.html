@@ -6,9 +6,12 @@
     <link rel="stylesheet" type="text/css" href="/screens/selfreg_style_print.css" media="print" />
   </head>
   <body>
+    <script type="text/javascript" src="/screens/jquery.min.js"></script>
+    <script src="/screens/language_tokens.js"></script>
+    <script src="/screens/selfregconfirm_logic.js"></script>
     <div id="confirm_wrapper">
-      <h2>Online Registration Confirmation</h2>
-      <p>Date registered:
+      <h2><script>msg('confirm');</script></h2>
+      <p><script>msg('date_registered');</script>
 	<script type="text/javascript">
 	  var currentTime = new Date()
 	  var month = currentTime.getMonth() + 1
@@ -17,23 +20,18 @@
 	  document.write(month + "/" + day + "/" + year)
 	</script>
       </p>
-      <p>Thanks for registering!</p>
+      <p><script>msg('thanks');</script></p>
       <h3>
 <!--{name}-->
       </h3>
-      <p>Please <strong>print this confirmation</strong> and bring it with the following documents to any Oakland Public Library within 14 days to pick up your card:</p>
-      <ul>
-	<li>Photo ID</li>
-	<li>Proof of address</li>
-      </ul>
-      <p> For children under 13, instead, a parent/Legal Guardian and child must both be present for the child to receive the card.</p>
+      <script>msg('confirm_note');</script>
       <div id="bcTarget"></div>
       <div class="confirm_button">
-	<input type="button" class="button white" value="Print Confirmation" onclick="printpage();">
-	<input class="button yellow" type="button" value="Close" onclick="startover();">
+	<input id="button_print" type="button" class="button white" value="" onclick="printpage();">
+	<script>document.getElementById("button_print").value = msgval('button_print');</script>
+	<input id="button_startover" class="button yellow" type="button" value="" onclick="startover();">
+	<script>document.getElementById("button_startover").value = msgval('button_print');</script>
       </div>
     </div>
   </body>
-  <script type="text/javascript" src="/screens/jquery.min.js"></script>
-  <script src="/screens/selfregconfirm_logic.js"></script>
 </html>

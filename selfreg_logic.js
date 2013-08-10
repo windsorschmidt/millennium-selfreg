@@ -25,9 +25,6 @@ $(document).keypress(function(event) {
 
 $(document).ready(function() {
     window.age_range = 0; // global used to show appropriate form fields
-    var monthnames = [ "January", "February", "March", "April",
-		       "May", "June","July", "August",
-		       "September", "October", "November", "December" ];
     $("div").hide();
     $("#intro_header").show();
     $("#form_wrapper").show();
@@ -134,48 +131,48 @@ function validate_form() {
     // last name
     s = $('input[name=last_name]').val()
     if (s.length == 0) {
-	add_error("#last_name", "Last name must not be empty.");
+	add_error("#last_name", msgval('error_last_name'));
     }
     // first name
     s = $('input[name=first_name]').val()
     if (s.length == 0) {
-	add_error("#first_name", "First name must not be empty.");
+	add_error("#first_name", msgval('error_first_name'));
     }
     // phone number
     var r = /^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/;
     if (!r.test(($('input[name=phone]').val()))) {
-	add_error("#phone", "Please enter a valid 10-digit phone number in the format: xxx-xxx-xxxx");
+	add_error("#phone", msgval('phone'));
     }
     // street address
     s = $('input[name=home_address]').val()
     if (s.length == 0) {
-	add_error("#home_address", "Please enter your home street address.");
+	add_error("#home_address", msgval('error_home_address'));
     }
     // city
     s = $('input[name=home_city]').val()
     if (s.length == 0) {
-	add_error("#home_city", "Please enter your home city.");
+	add_error("#home_city", msgval('error_home_city'));
     }
     // zip code
     s = $('input[name=home_zip]').val().replace(/\s+/g, '');
     if ((s.length != 5)|(s[0] != '9')) {
-	add_error("#home_zip", "Please enter a valid CA zip-code.");
+	add_error("#home_zip", msgval('error_home_zip'));
     }
     // teens / adults only
     if ((window.age_range == 3)|(window.age_range == 4)) {
 	// email address
 	var r = /\S+@\S+\.\S+/;
 	if (!r.test($('input[name=email]').val())) {
-	    add_error("#email", "Please enter a valid email address.");
+	    add_error("#email", msgval('error_email'));
 	}
 	// identification
 	s = $('input:radio[name=id_type]:checked').val();
 	if (!s) {
-	    add_error("#id_types", "Please select an identification type.");
+	    add_error("#id_types", msgval('error_id_types'));
 	}
 	s = $('input[name=id_number]').val()
 	if (s.length == 0) {
-	    add_error("#id_number", "Please enter a valid identification number.");
+	    add_error("#id_number", msgval('error_id_number'));
 	}
     }
     // children only
@@ -183,26 +180,26 @@ function validate_form() {
 	// guardian last name
 	s = $('input[name=guardian_last_name]').val()
 	if (s.length == 0) {
-	    add_error("#guardian_last_name", "Please enter the parent/guardian's last name.");
+	    add_error("#guardian_last_name", msgval('error_guardian_last_name'));
 	}
 	// guardian first name
 	s = $('input[name=guardian_first_name]').val()
 	if (s.length == 0) {
-	    add_error("#guardian_first_name", "Please enter the parent/guardian's first name.");
+	    add_error("#guardian_first_name", msgval('error_guardian_first_name'));
 	}
 	// guardian identification
 	s = $('input:radio[name=id_type]:checked').val();
 	if (!s) {
-	    add_error("#guardian_id_types", "Please select an identification type.");
+	    add_error("#guardian_id_types", msgval('error_guardian_id_types'));
 	}
 	s = $('input[name=guardian_id_number]').val()
 	if (s.length == 0) {
-	    add_error("#guardian_id_number", "Please enter a valid identification number.");
+	    add_error("#guardian_id_number", msgval('error_guardian_id_number'));
 	}
     }
     // agreement
     if (!$('input[name=agreement]').is(':checked')) {
-	add_error("#agreement_box", "You must read and agree to the library terms before submitting this form.");
+	add_error("#agreement_box", msgval('error_agreement_box'));
     }
     // if no errors, returns true and page is submitted
     return show_errors();
@@ -220,9 +217,7 @@ function show_errors() {
 	$("html, body").animate({ scrollTop: 0 }, "fast");
 	log(window.errors.length + " validation errors found");
 	$("#errors").toggleClass("error");
-	$("#errors").append("One or more problems were found. " +
-			    "Please check the highlited fields " +
-			    "before clicking submit.<ul>");
+	$("#errors").append(msgval('error_problems') + "<ul>");
 	for (var i = 0; i < window.errors.length; i++) {
 	    log(window.errors[i].id + ": " + window.errors[i].msg);
 	    $("#errors").append("<li>" + window.errors[i].msg + "</li>");
@@ -696,320 +691,3 @@ function get_jurisdiction_code(s) {
     else t = "192";
     return t;
 }
-
-// <script>msg('header');</script>
-function msg(id) {
-    document.write(msgval(id));
-}
-
-function msgval(id) {
-    return tdata[id][lang];
-}
-
-var lang = 'chi';
-tdata = new Object();
-tdata.header = {
-    eng:"Online Library Card Registration Form",
-    spa:"Formulario de Inscripción Card Library Online",
-    chi:"在线图书馆卡登记表"
-};
-tdata.enter_birthdate = {
-    eng:"Please Enter Your Birth Date",
-    spa:"",
-    chi:"???",
-};
-tdata.header_adult = {
-    eng:"Adult Library Card Registration (age 18 and above)",
-    spa:"",
-    chi:"???",
-};
-tdata.header_teen = {
-    eng:"Teen Library Card Registration (ages 13-17)",
-    spa:"",
-    chi:"???",
-};
-tdata.header_child = {
-    eng:"Child Library Card Registration (ages 5-12)",
-    spa:"",
-    chi:"???",
-};
-tdata.month = {
-    eng:"Month",
-    spa:"",
-    chi:"???",
-};
-tdata.january = {
-    eng:"January",
-    spa:"",
-    chi:"???",
-};
-tdata.february = {
-    eng:"February",
-    spa:"",
-    chi:"???",
-};
-tdata.march = {
-    eng:"March",
-    spa:"",
-    chi:"???",
-};
-tdata.april = {
-    eng:"April",
-    spa:"",
-    chi:"???",
-};
-tdata.may = {
-    eng:"May",
-    spa:"",
-    chi:"???",
-};
-tdata.june = {
-    eng:"June",
-    spa:"",
-    chi:"???",
-};
-tdata.july = {
-    eng:"July",
-    spa:"",
-    chi:"???",
-};
-tdata.august = {
-    eng:"August",
-    spa:"",
-    chi:"???",
-};
-tdata.september = {
-    eng:"September",
-    spa:"",
-    chi:"???",
-};
-tdata.october = {
-    eng:"October",
-    spa:"",
-    chi:"???",
-};
-tdata.november = {
-    eng:"November",
-    spa:"",
-    chi:"???",
-};
-tdata.december = {
-    eng:"December",
-    spa:"",
-    chi:"???",
-};
-tdata.day = {
-    eng:"Day",
-    spa:"",
-    chi:"???",
-};
-tdata.year = {
-    eng:"Year",
-    spa:"",
-    chi:"???",
-};
-tdata.submit = {
-    eng:"Submit",
-    spa:"",
-    chi:"???",
-};
-tdata.start_over = {
-    eng:"Start Over",
-    spa:"",
-    chi:"???",
-};
-tdata.disability_note = {
-    eng:"If you have a disability, ask Library staff for an Extended Services form.",
-    spa:"",
-    chi:"???",
-};
-tdata.pickup_note_adult = {
-    eng:"Pick up your library card in person from your nearest branch within 14 days of applying with the following documents:<ol><li>Photo ID</li><li>Proof of address</li></ol>",
-    spa:"",
-    chi:"???",
-};
-tdata.pickup_note_teen = {
-    eng:"Pick up your library card in person from your nearest branch within 14 days of applying with your photo ID, or the signature of a parent/legal guardian on a paper application if no ID is available.",
-    spa:"",
-    chi:"???",
-};
-tdata.pickup_note_child = {
-    eng:"Parent/Legal Guardian and child must both present themselves for the child to receive the card within 14 days of applying. Alternatively, you may print and fill out a <a href=\"http://www.oaklandlibrary.org/sites/default/files/uploads/OPL_Card_App_Eng_Kids_0.pdf\">paper application</a> for the child to receive a card without parent/legal guardian present.",
-    spa:"",
-    chi:"???",
-};
-tdata.required = {
-    eng:"required field",
-    spa:"",
-    chi:"???",
-};
-tdata.name = {
-    eng:"Name",
-    spa:"",
-    chi:"???",
-};
-tdata.last_name = {
-    eng:"Last Name",
-    spa:"",
-    chi:"???",
-};
-tdata.first_name = {
-    eng:"First Name",
-    spa:"",
-    chi:"???",
-};
-tdata.middle_initial = {
-    eng:"Middle Initial",
-    spa:"",
-    chi:"???",
-};
-tdata.home_address = {
-    eng:"Home Address",
-    spa:"",
-    chi:"???",
-};
-tdata.street = {
-    eng:"Street",
-    spa:"",
-    chi:"???",
-};
-tdata.apt = {
-    eng:"Apt.#",
-    spa:"",
-    chi:"???",
-};
-tdata.city = {
-    eng:"City",
-    spa:"",
-    chi:"???",
-};
-tdata.zip = {
-    eng:"CA. Zip Code",
-    spa:"",
-    chi:"???",
-};
-tdata.phone = {
-    eng:"Telephone",
-    spa:"",
-    chi:"???",
-};
-tdata.phone_note = {
-    eng:"(including area code)",
-    spa:"",
-    chi:"???",
-};
-tdata.mailing_address = {
-    eng:"Mailing Address (if different from home address)",
-    spa:"",
-    chi:"???",
-};
-tdata.email = {
-    eng:"E-Mail Address",
-    spa:"",
-    chi:"???",
-};
-tdata.pref_lang = {
-    eng:"Preferred Language",
-    spa:"",
-    chi:"???",
-};
-tdata.pref_lang_note = {
-    eng:"If you prefer to read in a language other than English, please indicate that language here",
-    spa:"",
-    chi:"???",
-};
-tdata.parent_info = {
-    eng:"Parent/Guardian Identification",
-    spa:"",
-    chi:"???",
-};
-tdata.school = {
-    eng:"School",
-    spa:"",
-    chi:"???",
-};
-tdata.parent_note = {
-    eng:"You may register using one of several identification types. Please select an identification type by clicking one of the buttons below, and then enter the number shown on your ID. For more information about the accepted types of identification, please see &ldquo;<a href=\"#\" onclick=\"lightbox_open(acceptable_id());\">What forms of identification are accepted?</a>&rdquo;",
-    spa:"",
-    chi:"???",
-};
-tdata.ident = {
-    eng:"Identification",
-    spa:"",
-    chi:"???",
-};
-tdata.ident_note = {
-    eng:"You may register using one of several identification types. Please select an identification type by clicking one of the buttons below, and then enter the number shown on your ID. For more information about the accepted types of identification, please see &ldquo;<a href=\"#\" onclick=\"lightbox_open(acceptable_id());\">What forms of identification are accepted?</a>&rdquo;",
-    spa:"",
-    chi:"???",
-};
-tdata.drivers_license = {
-    eng:"Driver's License",
-    spa:"",
-    chi:"???",
-};
-tdata.resident_card = {
-    eng:"Permanent Resident Card",
-    spa:"",
-    chi:"???",
-};
-tdata.state_id = {
-    eng:"State Issued ID Card",
-    spa:"",
-    chi:"???",
-};
-tdata.matricula = {
-    eng:"Matricula Consular ID Card",
-    spa:"",
-    chi:"???",
-};
-tdata.city_id = {
-    eng:"Oakland City ID/Municipal City ID",
-    spa:"",
-    chi:"???",
-};
-tdata.student_id = {
-    eng:"Student ID Card",
-    spa:"",
-    chi:"???",
-};
-tdata.passport = {
-    eng:"Passport",
-    spa:"",
-    chi:"???",
-};
-tdata.ident_number = {
-    eng:"ID Number",
-    spa:"",
-    chi:"???",
-};
-tdata.agreement = {
-    eng:"Online Agreement",
-    spa:"",
-    chi:"???",
-};
-tdata.agreement_note_adult_teen_adult = {
-    eng:"I agree to follow all library rules, pay all fines and fees, and give immediate notice of any change of address, phone number, or loss of library card. I understand that I am responsible for all items checked out on this card, that some items such as DVDs and videos have higher fines, and that I am the only authorized user of this card.",
-    spa:"",
-    chi:"???",
-};
-tdata.agreement_note_child = {
-    eng:"As parent/Legal Guardian, I understand and agree that:<br /><ul><li>The library may only give the card to my child.  Only my child may use his or her card.</li><li>The library allows my child to use any materials, from any section.   The library cannot limit the types of books or movies my child checks out, even if I ask.</li><li>My child’s library record (like mine) is private by law. The library cannot tell me what my child has checked out, except when a fine is owed.</li><li>Some materials have fines if they are returned late, and all lost or damaged materials have fines.  I am responsible for any fines on my child’s record.</li><li>My child can use computers at the library for up to one hour per day.  The library does not limit what children can look at, and does not supervise children on the computer.</li><li>If my child is younger than eight years old, he or she must be closely supervised by a parent or responsible caregiver, and may not be left unattended in the library.</li></ul>",
-    spa:"",
-    chi:"???",
-};
-tdata.agree = {
-    eng:"I agree to follow all library rules.",
-    spa:"",
-    chi:"???",
-};
-tdata.submit_error = {
-    eng:"Submission Error",
-    spa:"",
-    chi:"???",
-};
-tdata.submit_error_note = {
-    eng:"We were unable to process your form. Please contact a librarian for assistance.",
-    spa:"",
-    chi:"???",
-};
