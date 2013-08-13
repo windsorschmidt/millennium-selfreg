@@ -10,7 +10,7 @@ filename = 'token_data.csv'
 reader = unicode_csv_reader(open(filename))
 for field in reader:
     print "tdata." + field[0] + " = {"
-    print "eng:\"" + field[1].replace('"', '\\"') + "\","
-    print "spa:\"" + field[2] + "\","
-    print "chi:\"" + field[3] + "\","
+    print "    eng:\"" + field[1].replace('"', '\\"') + "\","
+    print "    spa:\"" + field[2] + "\","
+    print "    chi:\"" + field[3] + "\","
     print "};"
