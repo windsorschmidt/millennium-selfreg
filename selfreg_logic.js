@@ -25,9 +25,6 @@ $(document).keypress(function(event) {
 
 $(document).ready(function() {
     window.age_range = 0; // global used to show appropriate form fields
-    var monthnames = [ "January", "February", "March", "April",
-		       "May", "June","July", "August",
-		       "September", "October", "November", "December" ];
     $("div").hide();
     $("#intro_header").show();
     $("#form_wrapper").show();
@@ -134,48 +131,48 @@ function validate_form() {
     // last name
     s = $('input[name=last_name]').val()
     if (s.length == 0) {
-	add_error("#last_name", "Last name must not be empty.");
+	add_error("#last_name", msgval('error_last_name'));
     }
     // first name
     s = $('input[name=first_name]').val()
     if (s.length == 0) {
-	add_error("#first_name", "First name must not be empty.");
+	add_error("#first_name", msgval('error_first_name'));
     }
     // phone number
     var r = /^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/;
     if (!r.test(($('input[name=phone]').val()))) {
-	add_error("#phone", "Please enter a valid 10-digit phone number in the format: xxx-xxx-xxxx");
+	add_error("#phone", msgval('phone'));
     }
     // street address
     s = $('input[name=home_address]').val()
     if (s.length == 0) {
-	add_error("#home_address", "Please enter your home street address.");
+	add_error("#home_address", msgval('error_home_address'));
     }
     // city
     s = $('input[name=home_city]').val()
     if (s.length == 0) {
-	add_error("#home_city", "Please enter your home city.");
+	add_error("#home_city", msgval('error_home_city'));
     }
     // zip code
     s = $('input[name=home_zip]').val().replace(/\s+/g, '');
     if ((s.length != 5)|(s.charAt(0) != '9')) {
-	add_error("#home_zip", "Please enter a valid CA zip-code.");
+	add_error("#home_zip", msgval('error_home_zip'));
     }
     // teens / adults only
     if ((window.age_range == 3)|(window.age_range == 4)) {
 	// email address
 	var r = /\S+@\S+\.\S+/;
 	if (!r.test($('input[name=email]').val())) {
-	    add_error("#email", "Please enter a valid email address.");
+	    add_error("#email", msgval('error_email'));
 	}
 	// identification
 	s = $('input:radio[name=id_type]:checked').val();
 	if (!s) {
-	    add_error("#id_types", "Please select an identification type.");
+	    add_error("#id_types", msgval('error_id_types'));
 	}
 	s = $('input[name=id_number]').val()
 	if (s.length == 0) {
-	    add_error("#id_number", "Please enter a valid identification number.");
+	    add_error("#id_number", msgval('error_id_number'));
 	}
     }
     // children only
@@ -183,17 +180,26 @@ function validate_form() {
 	// guardian last name
 	s = $('input[name=guardian_last_name]').val()
 	if (s.length == 0) {
-	    add_error("#guardian_last_name", "Please enter the parent/guardian's last name.");
+	    add_error("#guardian_last_name", msgval('error_guardian_last_name'));
 	}
 	// guardian first name
 	s = $('input[name=guardian_first_name]').val()
 	if (s.length == 0) {
-	    add_error("#guardian_first_name", "Please enter the parent/guardian's first name.");
+	    add_error("#guardian_first_name", msgval('error_guardian_first_name'));
+	}
+	// guardian identification
+	s = $('input:radio[name=id_type]:checked').val();
+	if (!s) {
+	    add_error("#guardian_id_types", msgval('error_guardian_id_types'));
+	}
+	s = $('input[name=guardian_id_number]').val()
+	if (s.length == 0) {
+	    add_error("#guardian_id_number", msgval('error_guardian_id_number'));
 	}
     }
     // agreement
     if (!$('input[name=agreement]').is(':checked')) {
-	add_error("#agreement_box", "You must read and agree to the library terms before submitting this form.");
+	add_error("#agreement_box", msgval('error_agreement_box'));
     }
     // if no errors, returns true and page is submitted
     return show_errors();
@@ -211,9 +217,7 @@ function show_errors() {
 	$("html, body").animate({ scrollTop: 0 }, "fast");
 	log(window.errors.length + " validation errors found");
 	$("#errors").toggleClass("error");
-	$("#errors").append("One or more problems were found. " +
-			    "Please check the highlited fields " +
-			    "before clicking submit.<ul>");
+	$("#errors").append(msgval('error_problems') + "<ul>");
 	for (var i = 0; i < window.errors.length; i++) {
 	    log(window.errors[i].id + ": " + window.errors[i].msg);
 	    $("#errors").append("<li>" + window.errors[i].msg + "</li>");

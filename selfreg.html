@@ -2,246 +2,231 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <html>
   <head>
-    <title>Patron Self Registration Form</title>
+    <title>Online Library Card Registration Form</title>
     <link rel="stylesheet" type="text/css" href="/screens/selfreg_style.css" />
-    <!-- -->
-<meta name="google-translate-customization" content="9ca2e363a3aa518c-54c40d935381e27e-g0d9193d63f834acf-1a"></meta>
-    <!-- -->
   </head>
   <body>
+    <script src="/screens/jquery.min.js"></script>
+    <script src="/screens/language_tokens.js"></script>
+    <script src="/screens/selfreg_logic.js"></script>
     <div id="intro_header">
       <img class="inline" src="/screens/logo.png" />
-      <h1 class="inline">Online Library Card Registration Form</h1>
+      <h1 class="inline"><script>msg('header');</script></h1>
     </div>
-      <!-- -->
-      <div id="google_translate_element"></div><script type="text/javascript">
-	function googleTranslateElementInit() {
-	new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false}, 'google_translate_element');
-	}
-      </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-      <!-- -->
     <div id="form_wrapper">
       <form id="selfreg" method="post" onsubmit="return try_submit();">
 	<!-- unable to submit form (using III tag {iferrmsg}) -->
 	<div id="submit_error" class="hidden">
-	  <h1>Submission Error</h1>
-	  <p>We were unable to process your form. Please contact a librarian for assistance.</p>
+	  <h1><script>msg('submit_error');</script></h1>
+	  <p><script>msg('submit_error_note');</script></p>
 	</div>
 	<!-- age test -->
 	<div id="age_input" class="hidden">
-	  <h2>Please Enter Your Birth Date</h2>
-	  Month <select name="birth_month">
-	    <option value="1">January</option>
-	    <option value="2">February</option>
-	    <option value="3">March</option>
-	    <option value="4">April</option>
-	    <option value="5">May</option>
-	    <option value="6">June</option>
-	    <option value="7">July</option>
-	    <option value="8">August</option>
-	    <option value="9">September</option>
-	    <option value="10">October</option>
-	    <option value="11">November</option>
-	    <option value="12">December</option>
+	  <h2><script>msg('enter_birthdate');</script></h2>
+	  <script>msg('month');</script> <select name="birth_month">
+	    <option value="1"><script>msg('january');</script></option>
+	    <option value="2"><script>msg('february');</script></option>
+	    <option value="3"><script>msg('march');</script></option>
+	    <option value="4"><script>msg('april');</script></option>
+	    <option value="5"><script>msg('may');</script></option>
+	    <option value="6"><script>msg('june');</script></option>
+	    <option value="7"><script>msg('july');</script></option>
+	    <option value="8"><script>msg('august');</script></option>
+	    <option value="9"><script>msg('september');</script></option>
+	    <option value="10"><script>msg('october');</script></option>
+	    <option value="11"><script>msg('november');</script></option>
+	    <option value="12"><script>msg('december');</script></option>
 	  </select>
-	  Day <input type="text" name="birth_day" class="glowing-border" size="3">
-	  Year <input type="text" name="birth_year" class="glowing-border" size="4">
-	  <input value="Submit" type="button" class="button white" onclick="try_birthdate();">
+	  <script>msg('day');</script> <input type="text" name="birth_day" class="glowing-border" size="3">
+	  <script>msg('year');</script> <input type="text" name="birth_year" class="glowing-border" size="4">
+	  <input id="button_age_submit" type="button" class="button white" onclick="try_birthdate();">
+	  <script>document.getElementById("button_age_submit").value = msgval('submit');</script>
 	</div>
 	<!-- child form header -->
 	<div id="header_child" class="hidden">
-	  <h2>Child Library Card Registration (ages 5-12)</h2>
-	  <p>If you have a disability, ask Library staff for an Extended Services form.</p>
-	  <p>Parent/Legal Guardian and child must both present themselves for the child to receive the card within 14 days of applying. Alternatively, you may print and fill out a <a href="http://www.oaklandlibrary.org/sites/default/files/uploads/OPL_Card_App_Eng_Kids_0.pdf">paper application</a> for the child to receive a card without parent/legal guardian present.</p>
+	  <h2><script>msg('header_child');</script></h2>
+	  <p><script>msg('disability_note');</script></p>
+	  <p><script>msg('pickup_note_child');</script></p>
 	</div>
 	<!-- teen form header -->
 	<div id="header_teen"  class="hidden">
-	  <h2>Teen Library Card Registration (ages 13-17)</h2>
-	  <p>If you have a disability, ask Library staff for an Extended Services form.</p>
-	  <p>Pick up your library card in person from your nearest library branch within 14 days of applying with your photo ID.  Proof of address is required with ID for full access to our services, but we accept multiple forms of identification.  If no ID or proof of address is available, a parent/guardian signature on a <a href="http://www.oaklandlibrary.org/sites/default/files/uploads/OPL_Card_App_Eng_Teens_0.pdf">paper application</a> is also acceptable.</p>
+	  <h2><script>msg('header_teen');</script></h2>
+	  <p><script>msg('disability_note');</script></p>
+	  <p><script>msg('pickup_note_teen');</script></p>
 	</div>
 	<!-- adult form header -->
 	<div id="header_adult"  class="hidden">
-	  <h2>Adult Library Card Registration (age 18 and above)</h2>
-	  <p>If you have a disability, ask Library staff for an Extended Services form.</p>
-	  <p>Pick up your library card in person from your nearest branch within 14 days of applying with the following documents:</p>
-	  <ol>
-	    <li>Photo ID</li>
-	    <li>Proof of address</li>
-	  </ol>
+	  <h2><script>msg('header_adult');</script></h2>
+	  <p><script>msg('disability_note');</script></p>
+	  <p><script>msg('pickup_note_adult');</script></p>
 	</div>
 	<!-- common form elements -->
 	<div id="form_common"  class="hidden">
 	  <!-- legend -->
-	  <p><span class="required">&#9733;</span> = required field</p>
+	  <p><span class="required">&#9733;</span> = <script>msg('required');</script></p>
 	  <!-- error messages -->
 	  <div id="errors"></div>
 	  <!-- name -->
-	  <h3>Name</h3>
+	  <h3><script>msg('name');</script></h3>
 	  <p>
 	    <div id="last_name" class="inline">
-	      Last Name <input type="text" name="last_name" class="long-field">
+	      <script>msg('last_name');</script> <input type="text" name="last_name" class="long-field">
 	    </div>
 	    <div id="first_name" class="inline">
-	      First Name <input type="text" name="first_name">
+	      <script>msg('first_name');</script> <input type="text" name="first_name">
 	    </div>
 	    <div id="middle_initial" class="inline">
-	      Middle Initial <input type="text" name="middle_initial" class="short-field" maxlength="1">
+	      <script>msg('middle_initial');</script> <input type="text" name="middle_initial" class="short-field" maxlength="1">
 	    </div>
 	  </p>
 	  <!-- home address -->
-	  <h3>Home Address</h3>
+	  <h3><script>msg('home_address');</script></h3>
 	  <p>
 	    <div id="home_address" class="inline">
-	      Street <input type="text" name="home_address" class="long-field">
+	      <script>msg('street');</script> <input type="text" name="home_address" class="long-field">
 	    </div>
 	    <div id="home_apt" class="inline">
-	      Apt.# <input type="text" name="home_apt" class="short-field">
+	      <script>msg('apt');</script> <input type="text" name="home_apt" class="short-field">
 	    </div>
 	    <div id="home_city" class="inline">
-	      City <input type="text" name="home_city">
+	      <script>msg('city');</script> <input type="text" name="home_city">
 	    </div>
 	    <div id="home_zip" class="inline">
-	      CA. Zip Code <input type="text" name="home_zip">
+	      <script>msg('zip');</script> <input type="text" name="home_zip">
 	    </div>
 	  </p>
 	  <!-- telephone -->
-	  <h3>Telephone</h3>
+	  <h3><script>msg('phone');</script></h3>
 	  <p>
 	    <div id="phone" class="inline">
-	      <input type="text" name="phone"> (including area code)
+	      <input type="text" name="phone"> <script>msg('phone_note');</script>
 	    </div>
 	  </p>
 	  <!-- mailing address -->
-	  <h3>Mailing Address (if different from home address)</h3>
+	  <h3><script>msg('mailing_address');</script></h3>
 	  <p>
 	    <div id="mailing_address" class="inline">
-	      Street <input type="text" name="mailing_address" class="long-field">
+	      <script>msg('street');</script> <input type="text" name="mailing_address" class="long-field">
 	    </div>
 	    <div id="mailing_apt" class="inline">
-	      Apt.# <input type="text" name="mailing_apt" class="short-field">
+	      <script>msg('apt');</script> <input type="text" name="mailing_apt" class="short-field">
 	    </div>
 	    <div id="mailing_city" class="inline">
-	      City <input type="text" name="mailing_city">
+	      <script>msg('city');</script> <input type="text" name="mailing_city">
 	    </div>
 	    <div id="mailing_zip" class="inline">
-	      CA. Zip Code <input type="text" name="mailing_zip">
+	      <script>msg('zip');</script> <input type="text" name="mailing_zip">
 	    </div>
 	  </p>
 	  <!-- email -->
-	  <h3>E-Mail Address</h3>
+	  <h3><script>msg('email');</script></h3>
 	  <p>
 	    <div id="email" class="inline">
 	      <input type="text" name="email" class="long-field">
 	    </div>
 	  </p>
 	  <!-- preferred language -->
-	  <h3>Preferred Language</h3>
-	  If you prefer to read in a language other than English, please indicate that language here&nbsp;
+	  <h3><script>msg('pref_lang');</script></h3>
+	  <p><script>msg('pref_lang_note');</script></p>
 	  <input type="text" name="language">
 	</div>
 	<!-- teen / adult specific form elements -->
 	<div id="form_teen_adult" class="hidden">
 	  <!-- identification -->
-	  <h3>Identification</h3>
-	  <p>You may register using one of several identification types. Please select an identification type by clicking one of the buttons below, and then enter the number shown on your ID. For more information about the accepted types of identification, please see &ldquo;<a href="#" onclick="lightbox_open(acceptable_id());">What forms of identification are accepted?</a>&rdquo; Please see staff if you have ID not listed here.</p>
+	  <h3><script>msg('ident');</script></h3>
+	  <p><script>msg('ident_note');</script></p>
 	  <div id="id_types">
 	    <table>
 	      <tr>
-		<td><input type="radio" name="id_type" value="id_license">Driver's License</td>
-		<td><input type="radio" name="id_type" value="id_stateid">State Issued ID Card</td>
-		<td><input type="radio" name="id_type" value="id_student">Student ID Card</td>
-		<td><input type="radio" name="id_type" value="id_resident">Permanent Resident Card</td>
+		<td><input type="radio" name="id_type" value="id_license"><script>msg('drivers_license');</script></td>
+		<td><input type="radio" name="id_type" value="id_stateid"><script>msg('state_id');</script></td>
+		<td><input type="radio" name="id_type" value="id_student"><script>msg('student_id');</script></td>
+		<td><input type="radio" name="id_type" value="id_resident"><script>msg('resident_card');</script></td>
 	      </tr>
 	      <tr>
-		<td><input type="radio" name="id_type" value="id_matricula">Matricula Consular ID Card</td>
-		<td><input type="radio" name="id_type" value="id_cityid">Oakland City ID/Municipal City ID</td>
-		<td><input type="radio" name="id_type" value="id_passport">Passport</td>
+		<td><input type="radio" name="id_type" value="id_matricula"><script>msg('matricula');</script></td>
+		<td><input type="radio" name="id_type" value="id_cityid"><script>msg('city_id');</script></td>
+		<td><input type="radio" name="id_type" value="id_passport"><script>msg('passport');</script></td>
 	      </tr>
 	    </table>
 	  </div>
 	  <p>
 	    <div id="id_number" class="inline">
-	      ID Number <input type="text" name="id_number"  class="long-field">
+	      <script>msg('ident_number');</script> <input type="text" name="id_number"  class="long-field">
 	    </div>
 	  </p>
 	</div>
 	<!-- child specific form elements -->
 	<div id="form_child" class="hidden">
 	  <!-- child school -->
-	  <h3>School</h3>
+	  <h3><script>msg('school');</script></h3>
 	  <p>
 	    <div id="school" class="inline">
-	      School <input type="text" name="school" class="long-field">
+	      <script>msg('school');</script> <input type="text" name="school" class="long-field">
 	    </div>
 	  </p>
 	  <!-- parent/guardian information -->
-	  <h3>Parent/Guardian Information</h3>
+	  <h3><script>msg('parent_info');</script></h3>
 	  <div id="guardian_wrapper">
+	    <p><script>msg('parent_note');</script></p>
 	    <!-- name -->
 	    <p>
 	      <div id="guardian_last_name" class="inline">
-		Last Name <input type="text" name="guardian_last_name" class="long-field">
+		<script>msg('last_name');</script> <input type="text" name="guardian_last_name" class="long-field">
 	      </div>
 	      <div id="guardian_first_name" class="inline">
-		First Name <input type="text" name="guardian_first_name">
+		<script>msg('first_name');</script> <input type="text" name="guardian_first_name">
 	      </div>
 	      <div id="guardian_middle_initial" class="inline">
-		Middle Initial <input type="text" name="guardian_middle_initial" class="short-field" maxlength="1">
+		<script>msg('middle_initial');</script> <input type="text" name="guardian_middle_initial" class="short-field" maxlength="1">
 	      </div>
 	    </p>
 	    <!-- guardian identification -->
 	    <div id="guardian_id_types">
 	      <table>
 		<tr>
-		  <td><input type="radio" name="id_type" value="id_license">Driver's License</td>
-		  <td><input type="radio" name="id_type" value="id_stateid">State Issued ID Card</td>
-		  <td><input type="radio" name="id_type" value="id_student">Student ID Card</td>
-		  <td><input type="radio" name="id_type" value="id_resident">Permanent Resident Card</td>
+		  <td><input type="radio" name="id_type" value="id_license"><script>msg('drivers_license');</script></td>
+		  <td><input type="radio" name="id_type" value="id_stateid"><script>msg('state_id');</script></td>
+		  <td><input type="radio" name="id_type" value="id_student"><script>msg('student_id');</script></td>
+		  <td><<i></i>nput type="radio" name="id_type" value="id_resident"><script>msg('resident_card');</script></td>
 		</tr>
 		<tr>
-		  <td><input type="radio" name="id_type" value="id_matricula">Matricula Consular ID Card</td>
-		  <td><input type="radio" name="id_type" value="id_cityid">Oakland City ID/Municipal City ID</td>
-		  <td><input type="radio" name="id_type" value="id_passport">Passport</td>
+		  <td><input type="radio" name="id_type" value="id_matricula"><script>msg('matricula');</script></td>
+		  <td><<i></i>nput type="radio" name="id_type" value="id_cityid"><script>msg('city_id');</script></td>
+		  <td><input type="radio" name="id_type" value="id_passport"><script>msg('passport');</script></td>
 		</tr>
 	      </table>
 	    </div>
 	    <p>
 	      <div id="guardian_id_number" class="inline">
-		ID Number <input type="text" name="guardian_id_number"  class="long-field">
+		<script>msg('ident_number');</script> <input type="text" name="guardian_id_number"  class="long-field">
 	      </div>
 	    </p>
 	  </div>
 	</div>
 	<!-- online agreement -->
 	<div id="agreement" class="hidden">
-	  <h3>Online Agreement</h3>
+	  <h3><script>msg('agreement');</script></h3>
 	  <!-- child agreement -->
 	  <div id="agreement_child" class="hidden">
-	    <p>As parent/Legal Guardian, I understand and agree that:</p>
-	    <ul>
-              <li>The library may only give the card to my child.  Only my child may use his or her card.</li>
-              <li>The library allows my child to use any materials, from any section.   The library cannot limit the types of books or movies my child checks out, even if I ask.</li>
-              <li>My child’s library record (like mine) is private by law. The library cannot tell me what my child has checked out, except when a fine is owed.</li>
-              <li>Some materials have fines if they are returned late, and all lost or damaged materials have fines.  I am responsible for any fines on my child’s record.</li>
-              <li>My child can use computers at the library for up to one hour per day.  The library does not limit what children can look at, and does not supervise children on the computer.</li>
-              <li>If my child is younger than eight years old, he or she must be closely supervised by a parent or responsible caregiver, and may not be left unattended in the library.</li>
-	    </ul>
+	    <p><script>msg('agreement_note_child');</script></p>
 	  </div>
 	  <!-- teen / adult agreement -->
 	  <div id="agreement_teen_adult"  class="hidden">
-	    <p>I agree to follow all library rules, pay all fines and fees, and give immediate notice of any change of address, phone number, or loss of library card. I understand that I am responsible for all items checked out on this card, that some items such as DVDs and videos have higher fines, and that I am the only authorized user of this card.</p>
+	    <p><script>msg('agreement_note_teen_adult');</script></p>
 	  </div>
 	  <!-- agreement confirmation -->
 	  <div id="agreement_box">
 	    <input type="checkbox" name="agreement">
-	    I agree to follow all library rules.
+	    <script>msg('agree');</script>
 	  </div>
 	</div>
 	<div id="footer"  class="hidden">
 	  <p>
-	    <input type="submit" class="whitebutton" value="Submit Form">
-	    <input type="button" class="yellowbutton" value="Start Over" onclick="reset_form();">
+	    <input id="button_submit" type="submit" class="whitebutton" value="">
+	    <script>document.getElementById("button_submit").value = msgval('submit');</script>
+	    <input id="button_reset" type="button" class="yellowbutton" value="" onclick="reset_form();">
+	    <script>document.getElementById("button_reset").value = msgval('start_over');</script>
 	  </p>
 	</div>
       </form>
@@ -251,12 +236,10 @@
 <!--{iferrmsg}-->
     <script type="text/javascript">
       // millennium will do this if form submission failed.
-    if (window.location.hostname != 'localhost') {
+    if ((window.location.hostname != 'localhost') && (window.location.hostname != '10.30.9.6')) {
         window.submit_error = true; // flag checked by selfreg_logic.js
     }
     </script>
 <!--{xif}-->
-    <script src="/screens/jquery.min.js"></script>
-    <script src="/screens/selfreg_logic.js"></script>
   </body>
 </html>
