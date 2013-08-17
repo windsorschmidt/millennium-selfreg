@@ -24,6 +24,7 @@ $(document).keypress(function(event) {
 });
 
 $(document).ready(function() {
+    //lang = "eng";//getQueryVariable("lang");
     window.age_range = 0; // global used to show appropriate form fields
     $("div").hide();
     $("#intro_header").show();
@@ -498,7 +499,19 @@ function debug_print_form() {
     log("F044pcode1: " + form.elements["F044pcode1"].value);
 }
 
+function getQueryVariable(variable) {
+    var query = window.location.search.substring(1);
+    var vars = query.split("&");
+    for (var i=0;i<vars.length;i++) {
+	var pair = vars[i].split("=");
+	if (pair[0] == variable) {
+	    return pair[1];
+	}
+    }
+}
+
 function reset_form() {
+    var value = 'foo';
     log("resetting form");
     location.reload();
 }

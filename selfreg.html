@@ -4,11 +4,11 @@
   <head>
     <title>Online Library Card Registration Form</title>
     <link rel="stylesheet" type="text/css" href="/screens/selfreg_style.css" />
-  </head>
-  <body>
     <script src="/screens/jquery.min.js"></script>
     <script src="/screens/language_tokens.js"></script>
     <script src="/screens/selfreg_logic.js"></script>
+  </head>
+  <body>
     <div id="intro_header">
       <img class="inline" src="/screens/logo.png" />
       <h1 class="inline"><script>msg('header');</script></h1>
@@ -20,6 +20,12 @@
 	  <h1><script>msg('submit_error');</script></h1>
 	  <p><script>msg('submit_error_note');</script></p>
 	</div>
+	<!-- language select -->
+	<!--
+	<input id="button_lang_eng" type="button" class="button white" value="English" onclick="setlang('eng'); reset_form();">
+	<input id="button_lang_spa" type="button" class="button white" value="Spanish" onclick="setlang('spa'); reset_form();">
+	-->
+
 	<!-- age test -->
 	<div id="age_input" class="hidden">
 	  <h2><script>msg('enter_birthdate');</script></h2>
@@ -138,15 +144,15 @@
 	  <div id="id_types">
 	    <table>
 	      <tr>
-		<td><input type="radio" name="id_type" value="id_license"><script>msg('drivers_license');</script></td>
-		<td><input type="radio" name="id_type" value="id_stateid"><script>msg('state_id');</script></td>
-		<td><input type="radio" name="id_type" value="id_student"><script>msg('student_id');</script></td>
-		<td><input type="radio" name="id_type" value="id_resident"><script>msg('resident_card');</script></td>
+		<td><input type="radio" name="id_type" value="id_license"><script>msg('drivers_license');</script></input></td>
+		<td><input type="radio" name="id_type" value="id_stateid"><script>msg('state_id');</script></input></td>
+		<td><input type="radio" name="id_type" value="id_student"><script>msg('student_id');</script></input></td>
+		<td><input type="radio" name="id_type" value="id_resident"><script>msg('resident_card');</script></input></td>
 	      </tr>
 	      <tr>
-		<td><input type="radio" name="id_type" value="id_matricula"><script>msg('matricula');</script></td>
-		<td><input type="radio" name="id_type" value="id_cityid"><script>msg('city_id');</script></td>
-		<td><input type="radio" name="id_type" value="id_passport"><script>msg('passport');</script></td>
+		<td><input type="radio" name="id_type" value="id_matricula"><script>msg('matricula');</script></input></td>
+		<td><input type="radio" name="id_type" value="id_cityid"><script>msg('city_id');</script></input></td>
+		<td><input type="radio" name="id_type" value="id_passport"><script>msg('passport');</script></input></td>
 	      </tr>
 	    </table>
 	  </div>
@@ -185,15 +191,15 @@
 	    <div id="guardian_id_types">
 	      <table>
 		<tr>
-		  <td><input type="radio" name="id_type" value="id_license"><script>msg('drivers_license');</script></td>
-		  <td><input type="radio" name="id_type" value="id_stateid"><script>msg('state_id');</script></td>
-		  <td><input type="radio" name="id_type" value="id_student"><script>msg('student_id');</script></td>
-		  <td><<i></i>nput type="radio" name="id_type" value="id_resident"><script>msg('resident_card');</script></td>
+		  <td><input type="radio" name="id_type" value="id_license"><script>msg('drivers_license');</script></input></td>
+		  <td><input type="radio" name="id_type" value="id_stateid"><script>msg('state_id');</script></input></td>
+		  <td><input type="radio" name="id_type" value="id_student"><script>msg('student_id');</script></input></td>
+		  <td><input type="radio" name="id_type" value="id_resident"><script>msg('resident_card');</script></input></td>
 		</tr>
 		<tr>
-		  <td><input type="radio" name="id_type" value="id_matricula"><script>msg('matricula');</script></td>
-		  <td><<i></i>nput type="radio" name="id_type" value="id_cityid"><script>msg('city_id');</script></td>
-		  <td><input type="radio" name="id_type" value="id_passport"><script>msg('passport');</script></td>
+		  <td><input type="radio" name="id_type" value="id_matricula"><script>msg('matricula');</script></input></td>
+		  <td><input type="radio" name="id_type" value="id_cityid"><script>msg('city_id');</script></input></td>
+		  <td><input type="radio" name="id_type" value="id_passport"><script>msg('passport');</script></input></td>
 		</tr>
 	      </table>
 	    </div>
