@@ -24,7 +24,7 @@ h1 {
 #form_wrapper {
     border: 1px solid #aaaaaa;
     border-radius: 2px;
-    width: 75%;
+    width: 80%;
     padding: 0px 12px 12px;
     margin: 12px auto 12px auto;
 }
@@ -66,7 +66,7 @@ h1 {
       display: none;
 }
 input[type=text] {
-    width:8em;
+    width:7em;
     border: 1px solid #aaaaaa;
     border-radius: 1px;
     margin: 0px 2px 0px 2px;
@@ -76,7 +76,7 @@ input[type=text].short-field {
     width:2em;
 }
 input[type=text].long-field {
-    width:15em;
+    width:10em;
 }
 input[type=text]:focus {
     outline: none;
