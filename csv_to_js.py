@@ -12,5 +12,5 @@ for field in reader:
     print "tdata." + field[0] + " = {"
     print "    eng:\"" + field[1].replace('"', '\\"') + "\","
     print "    spa:\"" + field[2] + "\","
-    print "    chi:\"" + field[3] + "\","
+    print "    chi:\"" + field[3] + "\""
     print "};"
