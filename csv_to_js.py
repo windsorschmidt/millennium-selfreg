@@ -8,9 +8,10 @@ def unicode_csv_reader(utf8_data, dialect=csv.excel, **kwargs):
 
 filename = 'token_data.csv'
 reader = unicode_csv_reader(open(filename))
+f = open('token_data.js', 'w')
 for field in reader:
-    print "tdata." + field[0] + " = {"
-    print "    eng:\"" + field[1].replace('"', '\\"') + "\","
-    print "    spa:\"" + field[2] + "\","
-    print "    chi:\"" + field[3] + "\""
-    print "};"
+    f.write("tdata."+field[0].replace('"', '\\"').encode("utf-8")+" = {\n")
+    f.write("    eng:\""+field[1].replace('"', '\\"').encode("utf-8")+"\",\n")
+    f.write("    spa:\""+field[2].replace('"', '\\"').encode("utf-8")+"\",\n")
+    f.write("    chi:\""+field[3].replace('"', '\\"').encode("utf-8")+"\"\n")
+    f.write("};".encode("utf-8")+"\n")
