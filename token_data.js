@@ -25,12 +25,12 @@ tdata.header_child = {
 };
 tdata.month = {
     eng:"Month",
-    spa:"xxx",
+    spa:"Mes",
     chi:"月"
 };
 tdata.january = {
     eng:"January",
-    spa:"xxx",
+    spa:"Enero",
     chi:"一月"
 };
 tdata.february = {
@@ -90,12 +90,12 @@ tdata.december = {
 };
 tdata.day = {
     eng:"Day",
-    spa:"xxx",
+    spa:"Día",
     chi:"日"
 };
 tdata.year = {
     eng:"Year",
-    spa:"xxx",
+    spa:"Año",
     chi:"年"
 };
 tdata.submit = {
@@ -397,6 +397,11 @@ tdata.button_print = {
     eng:"Print Confirmation",
     spa:"xxx",
     chi:"打印確認"
+};
+tdata.button_age_submit = {
+    eng:"Submit",
+    spa:"Seguir",
+    chi:"關閉"
 };
 tdata.button_close = {
     eng:"Close",

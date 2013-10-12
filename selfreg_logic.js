@@ -9,6 +9,8 @@
 //    - calls postproc_form() to transform data to iii field format
 //    - returns true to allow http POST, otherwise fails
 
+lang = "eng";
+
 window.document.onkeydown = function (e) {
     if (!e) {
         e = event;
@@ -21,20 +23,39 @@ $(document).keypress(function(event) {
     if (event.which == '13') {
         event.preventDefault();
     }
-});
+})
 
 $(document).ready(function() {
-    //lang = "eng";//getQueryVariable("lang");
     window.age_range = 0; // global used to show appropriate form fields
     $("div").hide();
     $("#intro_header").show();
+    $("#lang_select").show();
     $("#form_wrapper").show();
     if (window.submit_error == true) {
 	$("#submit_error").show();
     } else {
 	$("#age_input").show();
     }
+
+    $("#lang" ).change(function() {
+	lang = $(this).val();
+	log("setting language to " + lang);
+	update_text();
+    });
+
+    update_text();
 });
+
+function update_text() {
+    for(var p in tdata) {
+	key = "#msg_" + p;
+	if ($(key).is("input")) {
+	    $(key).prop('value', msgval(p));
+	} else {
+	    $(key).text(msgval(p));
+	}
+    }
+}
 
 // validate user input in age fields when user clicks submit
 function try_birthdate() {
@@ -421,6 +442,7 @@ function show_form(form_id) {
     transition = 'fast'
     $("div").hide();
     $("#intro_header").show();
+    $("#lang_select").show();
     $("#form_wrapper").show();
     $("#form_common").show();
     $("#form_common").children().show();
