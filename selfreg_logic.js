@@ -9,6 +9,8 @@
 //    - calls postproc_form() to transform data to iii field format
 //    - returns true to allow http POST, otherwise fails
 
+
+// default language (see token_data.js for alternate language keys)
 lang = "eng";
 
 window.document.onkeydown = function (e) {
@@ -26,7 +28,17 @@ $(document).keypress(function(event) {
 })
 
 $(document).ready(function() {
-    window.age_range = 0; // global used to show appropriate form fields
+    // global, used to represent user's age category and show appropriate fields
+    window.age_range = 0;
+
+    // called only when user selects a language from the drop-down list
+    $("#lang" ).change(function() {
+	lang = $(this).val();
+	log("setting language to " + lang);
+	update_text();
+    });
+
+    // show page elements
     $("div").hide();
     $("#intro_header").show();
     $("#lang_select").show();
@@ -37,15 +49,11 @@ $(document).ready(function() {
 	$("#age_input").show();
     }
 
-    $("#lang" ).change(function() {
-	lang = $(this).val();
-	log("setting language to " + lang);
-	update_text();
-    });
-
+    // show string tokens
     update_text();
 });
 
+// replace all string tokens with strings in the current language
 function update_text() {
     for(var p in tdata) {
 	key = "#msg_" + p;
@@ -533,7 +541,6 @@ function getQueryVariable(variable) {
 }
 
 function reset_form() {
-    var value = 'foo';
     log("resetting form");
     location.reload();
 }
