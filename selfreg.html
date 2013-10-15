@@ -115,16 +115,16 @@
 	  <h3><span id="msg_mailing_address"></span></h3>
 	  <p>
 	    <div id="mailing_address" class="inline">
-	      <span id="msg_street"></span> <input type="text" name="mailing_address" class="long-field">
+	      <span id="msg_mailing_street"></span> <input type="text" name="mailing_address" class="long-field">
 	    </div>
 	    <div id="mailing_apt" class="inline">
-	      <span id="msg_apt"></span> <input type="text" name="mailing_apt" class="short-field">
+	      <span id="msg_mailing_apt"></span> <input type="text" name="mailing_apt" class="short-field">
 	    </div>
 	    <div id="mailing_city" class="inline">
-	      <span id="msg_city"></span> <input type="text" name="mailing_city">
+	      <span id="msg_mailing_city"></span> <input type="text" name="mailing_city">
 	    </div>
 	    <div id="mailing_zip" class="inline">
-	      <span id="msg_zip"></span> <input type="text" name="mailing_zip">
+	      <span id="msg_mailing_zip"></span> <input type="text" name="mailing_zip">
 	    </div>
 	  </p>
 	  <!-- email -->
@@ -232,10 +232,8 @@
 	</div>
 	<div id="footer"  class="hidden">
 	  <p>
-	    <input id="button_submit" type="submit" class="whitebutton" value="">
-	    <script>document.getElementById("button_submit").value = msgval('submit');</script>
-	    <input id="button_reset" type="button" class="yellowbutton" value="" onclick="reset_form();">
-	    <script>document.getElementById("button_reset").value = msgval('start_over');</script>
+	    <input id="msg_submit" type="submit" class="whitebutton">
+	    <input id="msg_start_over" type="button" class="yellowbutton" onclick="reset_form();">
 	  </p>
 	</div>
       </form>

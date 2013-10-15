@@ -11,8 +11,16 @@
     <script src="/screens/token_data.js"></script>
     <script src="/screens/selfregconfirm_logic.js"></script>
     <div id="confirm_wrapper">
-      <h2><script>msg('confirm');</script></h2>
-      <p><script>msg('date_registered');</script>
+    <div id="lang_select">
+      Language / 語言 / Idioma
+      <select id="lang">
+	<option value="eng">English</option>
+	<option value="spa">Español</option>
+	<option value="chi">中文</option>
+      </select>
+    </div>
+      <h2><span id="msg_confirm"></span></h2>
+      <p><span id="msg_date_registered"></span>
 	<script type="text/javascript">
 	  var currentTime = new Date()
 	  var month = currentTime.getMonth() + 1
@@ -21,17 +29,15 @@
 	  document.write(month + "/" + day + "/" + year)
 	</script>
       </p>
-      <p><script>msg('thanks');</script></p>
+      <p><span id="msg_thanks"></span></p>
       <h3>
 <!--{name}-->
       </h3>
-      <script>msg('confirm_note');</script>
+      <span id="msg_confirm_note"></span>
       <div id="bcTarget"></div>
       <div class="confirm_button">
-	<input id="button_print" type="button" class="button white" value="" onclick="printpage();">
-	<script>document.getElementById("button_print").value = msgval('button_print');</script>
-	<input id="button_startover" class="button yellow" type="button" value="" onclick="startover();">
-	<script>document.getElementById("button_startover").value = msgval('button_close');</script>
+	<input id="msg_button_print" type="button" class="button white" onclick="printpage();">
+	<input id="msg_start_over" class="button yellow" type="button" onclick="startover();">
       </div>
     </div>
   </body>

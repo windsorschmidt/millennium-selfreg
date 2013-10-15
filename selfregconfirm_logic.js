@@ -1,8 +1,19 @@
+lang = "eng"
+
 $(document).ready(function() {
     // restart registration procedure after a long time out
     setTimeout(function(){
 	startover();
     }, 120*1000); // units are in milliseconds
+
+    // called only when user selects a language from the drop-down list
+    $("#lang" ).change(function() {
+	lang = $(this).val();
+	log("setting language to " + lang);
+	replace_language();
+    });
+
+    replace_language();
 });
 
 function log(m) {

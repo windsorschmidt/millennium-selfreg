@@ -29,3 +29,15 @@ function setlang(n) {
 	break;
     }
 }
+
+// replace all string tokens with strings in the current language
+function replace_language() {
+    for(var p in tdata) {
+	key = "#msg_" + p;
+	if ($(key).is("input")) {
+	    $(key).prop('value', msgval(p));
+	} else {
+	    $(key).text(msgval(p));
+	}
+    }
+}

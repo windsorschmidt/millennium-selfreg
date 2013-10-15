@@ -35,7 +35,7 @@ $(document).ready(function() {
     $("#lang" ).change(function() {
 	lang = $(this).val();
 	log("setting language to " + lang);
-	update_text();
+	replace_language();
     });
 
     // show page elements
@@ -50,20 +50,9 @@ $(document).ready(function() {
     }
 
     // show string tokens
-    update_text();
+    replace_language();
+    show_form("#adult_form");
 });
-
-// replace all string tokens with strings in the current language
-function update_text() {
-    for(var p in tdata) {
-	key = "#msg_" + p;
-	if ($(key).is("input")) {
-	    $(key).prop('value', msgval(p));
-	} else {
-	    $(key).text(msgval(p));
-	}
-    }
-}
 
 // validate user input in age fields when user clicks submit
 function try_birthdate() {
