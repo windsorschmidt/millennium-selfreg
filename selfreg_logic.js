@@ -9,10 +9,6 @@
 //    - calls postproc_form() to transform data to iii field format
 //    - returns true to allow http POST, otherwise fails
 
-
-// default language (see token_data.js for alternate language keys)
-lang = "eng";
-
 window.document.onkeydown = function (e) {
     if (!e) {
         e = event;
@@ -35,7 +31,12 @@ $(document).ready(function() {
     $("#lang" ).change(function() {
 	lang = $(this).val();
 	log("setting language to " + lang);
+	set_cookie("language", lang, 0);
 	replace_language();
+
+	$("*").toggleClass("error", false);
+	$("#errors").text("");
+	show_errors();
     });
 
     // show page elements
@@ -49,8 +50,22 @@ $(document).ready(function() {
 	$("#age_input").show();
     }
 
-    // show string tokens
+    // set language
+    lang = get_cookie("language");
+    if (lang === null) {
+	log("didn't find language cookie. setting language to English");
+	// default language (see token_data.js for alternate language keys)
+	lang = "eng";
+	set_cookie("language", "eng", 0);
+    } else {
+	log("got language cookie: " + lang);
+	$("#lang").val(lang);
+    }
+
+    // replace all string tokens with those of current language
     replace_language();
+
+    // testing only
     show_form("#adult_form");
 });
 
@@ -143,6 +158,7 @@ function try_submit() {
 function validate_form() {
     // remove any errors from a previous submission
     window.errors = [];
+
     $("*").toggleClass("error", false);
     $("#errors").text("");
     // build up global array of error objects, attached to window object
@@ -150,48 +166,48 @@ function validate_form() {
     // last name
     s = $('input[name=last_name]').val()
     if (s.length == 0) {
-	add_error("#last_name", msgval('error_last_name'));
+	add_error("#last_name", "error_last_name");
     }
     // first name
     s = $('input[name=first_name]').val()
     if (s.length == 0) {
-	add_error("#first_name", msgval('error_first_name'));
+	add_error("#first_name", "error_first_name");
     }
     // phone number
     var r = /^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/;
     if (!r.test(($('input[name=phone]').val()))) {
-	add_error("#phone", msgval('phone'));
+	add_error("#phone", "phone");
     }
     // street address
     s = $('input[name=home_address]').val()
     if (s.length == 0) {
-	add_error("#home_address", msgval('error_home_address'));
+	add_error("#home_address", "error_home_address");
     }
     // city
     s = $('input[name=home_city]').val()
     if (s.length == 0) {
-	add_error("#home_city", msgval('error_home_city'));
+	add_error("#home_city", "error_home_city");
     }
     // zip code
     s = $('input[name=home_zip]').val().replace(/\s+/g, '');
     if ((s.length != 5)|(s.charAt(0) != '9')) {
-	add_error("#home_zip", msgval('error_home_zip'));
+	add_error("#home_zip", "error_home_zip");
     }
     // teens / adults only
     if ((window.age_range == 3)|(window.age_range == 4)) {
 	// email address
 	var r = /\S+@\S+\.\S+/;
 	if (!r.test($('input[name=email]').val())) {
-	    add_error("#email", msgval('error_email'));
+	    add_error("#email", "error_email");
 	}
 	// identification
 	s = $('input:radio[name=id_type]:checked').val();
 	if (!s) {
-	    add_error("#id_types", msgval('error_id_types'));
+	    add_error("#id_types", "error_id_types");
 	}
 	s = $('input[name=id_number]').val()
 	if (s.length == 0) {
-	    add_error("#id_number", msgval('error_id_number'));
+	    add_error("#id_number", "error_id_number");
 	}
     }
     // children only
@@ -199,26 +215,26 @@ function validate_form() {
 	// guardian last name
 	s = $('input[name=guardian_last_name]').val()
 	if (s.length == 0) {
-	    add_error("#guardian_last_name", msgval('error_guardian_last_name'));
+	    add_error("#guardian_last_name", "error_guardian_last_name");
 	}
 	// guardian first name
 	s = $('input[name=guardian_first_name]').val()
 	if (s.length == 0) {
-	    add_error("#guardian_first_name", msgval('error_guardian_first_name'));
+	    add_error("#guardian_first_name", "error_guardian_first_name");
 	}
 	// guardian identification
 	s = $('input:radio[name=id_type]:checked').val();
 	if (!s) {
-	    add_error("#guardian_id_types", msgval('error_guardian_id_types'));
+	    add_error("#guardian_id_types", "error_guardian_id_types");
 	}
 	s = $('input[name=guardian_id_number]').val()
 	if (s.length == 0) {
-	    add_error("#guardian_id_number", msgval('error_guardian_id_number'));
+	    add_error("#guardian_id_number", "error_guardian_id_number");
 	}
     }
     // agreement
     if (!$('input[name=agreement]').is(':checked')) {
-	add_error("#agreement_box", msgval('error_agreement_box'));
+	add_error("#agreement_box", "error_agreement_box");
     }
     // if no errors, returns true and page is submitted
     return show_errors();
@@ -226,8 +242,8 @@ function validate_form() {
 
 // when validating fields, build a list of errors found. this function adds an
 // error to the list, including a reference to the field id used to highlight it
-function add_error(error_id, error_msg) {
-    window.errors.push({id:error_id, msg:error_msg});
+function add_error(error_id, error_msg_id) {
+    window.errors.push({id:error_id, msg:error_msg_id});
 }
 
 // display error messages and highlight associated fields
@@ -236,10 +252,10 @@ function show_errors() {
 	$("html, body").animate({ scrollTop: 0 }, "fast");
 	log(window.errors.length + " validation errors found");
 	$("#errors").toggleClass("error");
-	$("#errors").append(msgval('error_problems') + "<ul>");
+	$("#errors").append(msgval("error_problems") + "<ul>");
 	for (var i = 0; i < window.errors.length; i++) {
 	    log(window.errors[i].id + ": " + window.errors[i].msg);
-	    $("#errors").append("<li>" + window.errors[i].msg + "</li>");
+	    $("#errors").append("<li>" + msgval(window.errors[i].msg) + "</li>");
 	    $(window.errors[i].id).addClass("error");
 	    $(".error").animate({
 		opacity: 1
