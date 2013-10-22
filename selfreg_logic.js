@@ -64,9 +64,6 @@ $(document).ready(function() {
 
     // replace all string tokens with those of current language
     replace_language();
-
-    // testing only
-    show_form("#adult_form");
 });
 
 // validate user input in age fields when user clicks submit

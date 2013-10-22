@@ -4,7 +4,7 @@ tdata.header = {
     chi:"網上圖書証申請表"
 };
 tdata.enter_birthdate = {
-    eng:"Please Enter Your Birth Date",
+    eng:"Please Enter Your <strong>Birth</strong> Date",
     spa:"xxx",
     chi:"請填寫你的出生日期"
 };

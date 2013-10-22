@@ -35,9 +35,11 @@ function replace_language() {
     for(var p in tdata) {
 	key = "#msg_" + p;
 	if ($(key).is("input")) {
+	    // button labels
 	    $(key).prop('value', msgval(p));
 	} else {
-	    $(key).text(msgval(p));
+	    // all other strings
+	    $(key).html(msgval(p));
 	}
     }
 }
