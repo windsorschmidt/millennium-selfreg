@@ -37,9 +37,15 @@ function replace_language() {
 	if ($(key).is("input")) {
 	    // button labels
 	    $(key).prop('value', msgval(p));
+	    // the is likely a better way to do this with, perhaps, classes
+	    // I want to have a unique id in selfreg.html, but reuse some
+	    // string tokens. so, if an id ends with 'xxx_child', then perform
+	    // a replacement as if the id was only 'xxx'
+	    $(key + "_child").prop('value', msgval(p));
 	} else {
 	    // all other strings
 	    $(key).html(msgval(p));
+	    $(key + "_child").html(msgval(p));
 	}
     }
 }

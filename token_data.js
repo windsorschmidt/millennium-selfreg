@@ -4,8 +4,8 @@ tdata.header = {
     chi:"網上圖書証申請表"
 };
 tdata.enter_birthdate = {
-    eng:"Please Enter Your <strong>Birth</strong> Date",
-    spa:"xxx",
+    eng:"Please Enter Your Birth Date",
+    spa:"Favor de Indicar su Fecha de Nacimiento",
     chi:"請填寫你的出生日期"
 };
 tdata.header_adult = {
