@@ -246,7 +246,7 @@ tdata.ident = {
 tdata.ident_note = {
     eng:"You may register using one of several identification types. Please select an identification type by clicking one of the buttons below, and then enter the number shown on your ID. For more information about the accepted types of identification, please see &ldquo;<a href=\"#\" onclick=\"lightbox_open(acceptable_id());\">What forms of identification are accepted?</a>&rdquo; Please see staff if you have ID not listed here.",
     spa:"Usted se puede registrar usando uno de varios tipos de identificación. Favor de indicar cual tipo de identificación desea usar y ponga el numero abajo. Para más información acerca de cuales tipos de identificación son aceptados vea &ldquo;<a href=\"#\" onclick=\"lightbox_open(acceptable_id());\">What forms of identification are accepted?</a>&rdquo;",
-    chi:"你可選擇使用任何一種身份証明文件申請圖書証。請點擊以下按鈕，然後輸入証件上的號碼。有關可接受的身份証種類詳情，請參閱 "
+    chi:"你可選擇使用任何一種身份証明文件申請圖書証。請點擊以下按鈕，然後輸入証件上的號碼。若你所持的証件這裡没有列出，請向圖書館職員查詢。"
 };
 tdata.drivers_license = {
     eng:"Driver's License",
