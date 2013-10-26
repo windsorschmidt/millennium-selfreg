@@ -98,6 +98,11 @@ tdata.year = {
     spa:"Año",
     chi:"年"
 };
+tdata.submit_age = {
+    eng:"Submit",
+    spa:"Continúe",
+    chi:"提交  "
+};
 tdata.submit = {
     eng:"Submit",
     spa:"Continúe",
