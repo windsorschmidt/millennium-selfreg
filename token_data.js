@@ -394,7 +394,7 @@ tdata.error_agreement_box = {
     chi:"提交此表格前，你必須閱讀並同意圖書館的條款。"
 };
 tdata.error_problems = {
-    eng:"One or more problems were found. Please check the highlited fields before clicking submit.",
+    eng:"One or more problems were found. Please check the highlighted fields before clicking submit.",
     spa:"Se han encontrado uno o más problemas con su solicitud.  Favor de revisar las área indicadas antes de hacer click para someter.",
     chi:"填寫資料發現一個或以上問題，請檢查螢光標出的欄位後再按提交。"
 };
