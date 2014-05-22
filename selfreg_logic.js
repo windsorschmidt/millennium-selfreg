@@ -69,7 +69,6 @@ $(document).ready(function() {
     // lang = "eng";
     // window.age_range = 2;
     // show_form("#child_form");
-
 });
 
 // validate user input in age fields when user clicks submit
