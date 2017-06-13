@@ -29,14 +29,14 @@ $(document).ready(function() {
 
     // called only when user selects a language from the drop-down list
     $("#lang" ).change(function() {
-        lang = $(this).val();
-        log("setting language to " + lang);
-        set_cookie("language", lang, 0);
-        replace_language();
+	lang = $(this).val();
+	log("setting language to " + lang);
+	set_cookie("language", lang, 0);
+	replace_language();
 
-        $("*").toggleClass("error", false);
-        $("#errors").text("");
-        show_errors();
+	$("*").toggleClass("error", false);
+	$("#errors").text("");
+	show_errors();
     });
 
     // show page elements
@@ -45,21 +45,21 @@ $(document).ready(function() {
     $("#lang_select").show();
     $("#form_wrapper").show();
     if (window.submit_error == true) {
-        $("#submit_error").show();
+	$("#submit_error").show();
     } else {
-        $("#age_input").show();
+	$("#age_input").show();
     }
 
     // set language
     lang = get_cookie("language");
     if (lang === null) {
-        log("didn't find language cookie. setting language to English");
-        // default language (see token_data.js for alternate language keys)
-        lang = "eng";
-        set_cookie("language", "eng", 0);
+	log("didn't find language cookie. setting language to English");
+	// default language (see token_data.js for alternate language keys)
+	lang = "eng";
+	set_cookie("language", "eng", 0);
     } else {
-        log("got language cookie: " + lang);
-        $("#lang").val(lang);
+	log("got language cookie: " + lang);
+	$("#lang").val(lang);
     }
 
     // replace all string tokens with those of current language
@@ -74,29 +74,29 @@ $(document).ready(function() {
 // validate user input in age fields when user clicks submit
 function try_birthdate() {
     var birth_date = [ $("#selfreg input[name=birth_year]").val(),
-                       $("#selfreg select[name=birth_month]").val(),
-                       $("#selfreg input[name=birth_day]").val() ];
+		       $("#selfreg select[name=birth_month]").val(),
+		       $("#selfreg input[name=birth_day]").val() ];
     if ((birth_date[0] == "") || (birth_date[2] == "")) {
-        log("birth date fields not filled");
-        return false;
+	log("birth date fields not filled");
+	return false;
     }
     window.age_range = classify_age(birth_date);
     switch (window.age_range) {
     case 0:
-        // couldn't parse. TODO: direct patron to staff
-        break;
+	// couldn't parse. TODO: direct patron to staff
+	break;
     case 1:
-        // too young. TODO: direct patron to staff
-        break;
+	// too young. TODO: direct patron to staff
+	break;
     case 2:
-        show_form("#child_form");
-        break;
+	show_form("#child_form");
+	break;
     case 3:
-        show_form("#teen_form");
-        break;
+	show_form("#teen_form");
+	break;
     case 4:
-        show_form("#adult_form");
-        break;
+	show_form("#adult_form");
+	break;
     }
 }
 
@@ -110,28 +110,28 @@ function classify_age(birth_date) {
     var age = calc_age(today, birth_date);
     log("patron age: " + age);
     if (isNaN(age)) {
-        log("error: couldn't parse age");
-        return 0;
+	log("error: couldn't parse age");
+	return 0;
     } else if (age < 0) {
-        log("patron age negative? treat as parsing error");
-        alert("Date entered is in the future. Are you a time traveler?");
-        return 0;
+	log("patron age negative? treat as parsing error");
+	alert("Date entered is in the future. Are you a time traveler?");
+	return 0;
     } else if (age < 5) {
-        log("not old enough to register");
-        alert("Applicants must be at least 5 years old to register for a library card. Please check the date or seek assistance from a librarian.");
-        return 1;
+	log("not old enough to register");
+	alert("Applicants must be at least 5 years old to register for a library card. Please check the date or seek assistance from a librarian.");
+	return 1;
     } else if (age < 13) {
-        log("classified as a child patron");
-        return 2;
+	log("classified as a child patron");
+	return 2;
     } else if (age < 18) {
-        log("classified as a teen patron");
-        return 3;
+	log("classified as a teen patron");
+	return 3;
     } else if (age > 200) {
-        log("patron age over 200? treat as parsing error");
-        return 0;
+	log("patron age over 200? treat as parsing error");
+	return 0;
     } else {
-        log("classified as an adult patron");
-        return 4;
+	log("classified as an adult patron");
+	return 4;
     }
 }
 
@@ -139,17 +139,17 @@ function classify_age(birth_date) {
 function try_submit() {
     log("user attempting to submit form");
     if (validate_form(window.age_range)) {
-        log("form validated ok");
+	log("form validated ok");
     } else {
-        log("unable to validate form");
-        return false;
+	log("unable to validate form");
+	return false;
     }
     if (postproc_form()) {
-        log("form postprocessed ok");
+	log("form postprocessed ok");
     } else {
-        // shouldn't ever get here, check validation logic
-        log("unable to postprocess form");
-        return false;
+	// shouldn't ever get here, check validation logic
+	log("unable to postprocess form");
+	return false;
     }
     debug_print_form();
     log("submitting form");
@@ -168,75 +168,75 @@ function validate_form() {
     // last name
     s = $('input[name=last_name]').val()
     if (s.length == 0) {
-        add_error("#last_name", "error_last_name");
+	add_error("#last_name", "error_last_name");
     }
     // first name
     s = $('input[name=first_name]').val()
     if (s.length == 0) {
-        add_error("#first_name", "error_first_name");
+	add_error("#first_name", "error_first_name");
     }
     // phone number
     var r = /^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/;
     if (!r.test(($('input[name=phone]').val()))) {
-        add_error("#phone", "phone");
+	add_error("#phone", "phone");
     }
     // street address
     s = $('input[name=home_address]').val()
     if (s.length == 0) {
-        add_error("#home_address", "error_home_address");
+	add_error("#home_address", "error_home_address");
     }
     // city
     s = $('input[name=home_city]').val()
     if (s.length == 0) {
-        add_error("#home_city", "error_home_city");
+	add_error("#home_city", "error_home_city");
     }
     // zip code
     s = $('input[name=home_zip]').val().replace(/\s+/g, '');
     if ((s.length != 5)|(s.charAt(0) != '9')) {
-        add_error("#home_zip", "error_home_zip");
+	add_error("#home_zip", "error_home_zip");
     }
     // teens / adults only
     if ((window.age_range == 3)|(window.age_range == 4)) {
-        // email address
-        var r = /\S+@\S+\.\S+/;
-        if (!r.test($('input[name=email]').val())) {
-            add_error("#email", "error_email");
-        }
-        // identification
-        s = $('input:radio[name=id_type]:checked').val();
-        if (!s) {
-            add_error("#id_types", "error_id_types");
-        }
-        s = $('input[name=id_number]').val()
-        if (s.length == 0) {
-            add_error("#id_number", "error_id_number");
-        }
+	// email address
+	var r = /\S+@\S+\.\S+/;
+	if (!r.test($('input[name=email]').val())) {
+	    add_error("#email", "error_email");
+	}
+	// identification
+	s = $('input:radio[name=id_type]:checked').val();
+	if (!s) {
+	    add_error("#id_types", "error_id_types");
+	}
+	s = $('input[name=id_number]').val()
+	if (s.length == 0) {
+	    add_error("#id_number", "error_id_number");
+	}
     }
     // children only
     if (window.age_range == 2) {
-        // guardian last name
-        s = $('input[name=guardian_last_name]').val()
-        if (s.length == 0) {
-            add_error("#guardian_last_name", "error_guardian_last_name");
-        }
-        // guardian first name
-        s = $('input[name=guardian_first_name]').val()
-        if (s.length == 0) {
-            add_error("#guardian_first_name", "error_guardian_first_name");
-        }
-        // guardian identification
-        s = $('input:radio[name=id_type]:checked').val();
-        if (!s) {
-            add_error("#guardian_id_types", "error_guardian_id_types");
-        }
-        s = $('input[name=guardian_id_number]').val()
-        if (s.length == 0) {
-            add_error("#guardian_id_number", "error_guardian_id_number");
-        }
+	// guardian last name
+	s = $('input[name=guardian_last_name]').val()
+	if (s.length == 0) {
+	    add_error("#guardian_last_name", "error_guardian_last_name");
+	}
+	// guardian first name
+	s = $('input[name=guardian_first_name]').val()
+	if (s.length == 0) {
+	    add_error("#guardian_first_name", "error_guardian_first_name");
+	}
+	// guardian identification
+	s = $('input:radio[name=id_type]:checked').val();
+	if (!s) {
+	    add_error("#guardian_id_types", "error_guardian_id_types");
+	}
+	s = $('input[name=guardian_id_number]').val()
+	if (s.length == 0) {
+	    add_error("#guardian_id_number", "error_guardian_id_number");
+	}
     }
     // agreement
     if (!$('input[name=agreement]').is(':checked')) {
-        add_error("#agreement_box", "error_agreement_box");
+	add_error("#agreement_box", "error_agreement_box");
     }
     // if no errors, returns true and page is submitted
     return show_errors();
@@ -251,23 +251,23 @@ function add_error(error_id, error_msg_id) {
 // display error messages and highlight associated fields
 function show_errors() {
     if (window.errors.length > 0) {
-        $("html, body").animate({ scrollTop: 0 }, "fast");
-        log(window.errors.length + " validation errors found");
-        $("#errors").toggleClass("error");
-        $("#errors").append(msgval("error_problems") + "<ul>");
-        for (var i = 0; i < window.errors.length; i++) {
-            log(window.errors[i].id + ": " + window.errors[i].msg);
-            $("#errors").append("<li>" + msgval(window.errors[i].msg) + "</li>");
-            $(window.errors[i].id).addClass("error");
-            $(".error").animate({
-                opacity: 1
-            }, 250);
-        }
-        $("#errors").append("</ul>");
-        return false;
+	$("html, body").animate({ scrollTop: 0 }, "fast");
+	log(window.errors.length + " validation errors found");
+	$("#errors").toggleClass("error");
+	$("#errors").append(msgval("error_problems") + "<ul>");
+	for (var i = 0; i < window.errors.length; i++) {
+	    log(window.errors[i].id + ": " + window.errors[i].msg);
+	    $("#errors").append("<li>" + msgval(window.errors[i].msg) + "</li>");
+	    $(window.errors[i].id).addClass("error");
+	    $(".error").animate({
+		opacity: 1
+	    }, 250);
+	}
+	$("#errors").append("</ul>");
+	return false;
     } else {
-        log("no errors found");
-        return true;
+	log("no errors found");
+	return true;
     }
 }
 
@@ -292,11 +292,11 @@ function postproc_form() {
     field.value = form.elements["first_name"].value.toUpperCase();
     form.appendChild(field);
     if (form.elements["middle_initial"].value != "") {
-        var field = document.createElement("input");
-        field.name = "nmiddle";
-        field.type = "hidden";
-        field.value = form.elements["middle_initial"].value.toUpperCase();
-        form.appendChild(field);
+	var field = document.createElement("input");
+	field.name = "nmiddle";
+	field.type = "hidden";
+	field.value = form.elements["middle_initial"].value.toUpperCase();
+	form.appendChild(field);
     }
     var field = document.createElement("input");
     field.name = "nlast";
@@ -310,9 +310,9 @@ function postproc_form() {
     address = form.elements["home_address"].value;
     apt = form.elements["home_apt"].value;
     if (apt != "") {
-        tempstring = address +  " APT " + apt;
+	tempstring = address +  " APT " + apt;
     } else {
-        tempstring = address;
+	tempstring = address;
     }
     field.value = tempstring.toUpperCase();
     form.appendChild(field);
@@ -327,26 +327,26 @@ function postproc_form() {
     // transform mailing address
     log("mailing: " + form.elements["mailing_address"].value);
     if (form.elements["mailing_address"].value != "") {
-        var field = document.createElement("input");
-        field.name = "stre_haddress2";
-        field.type = "hidden";
-        address = form.elements["mailing_address"].value;
-        apt = form.elements["mailing_apt"].value;
-        if (apt != "") {
-            tempstring = address +  " APT " + apt;
-        } else {
-            tempstring = address;
-        }
-        field.value = tempstring.toUpperCase();
-        form.appendChild(field);
-        var field = document.createElement("input");
-        field.name = "city_haddress2";
-        field.type = "hidden";
-        city = form.elements["mailing_city"].value;
-        zip = form.elements["mailing_zip"].value;
-        tempstring = city + ", CA " + zip;
-        field.value = tempstring.toUpperCase();
-        form.appendChild(field);
+	var field = document.createElement("input");
+	field.name = "stre_haddress2";
+	field.type = "hidden";
+	address = form.elements["mailing_address"].value;
+	apt = form.elements["mailing_apt"].value;
+	if (apt != "") {
+	    tempstring = address +  " APT " + apt;
+	} else {
+	    tempstring = address;
+	}
+	field.value = tempstring.toUpperCase();
+	form.appendChild(field);
+	var field = document.createElement("input");
+	field.name = "city_haddress2";
+	field.type = "hidden";
+	city = form.elements["mailing_city"].value;
+	zip = form.elements["mailing_zip"].value;
+	tempstring = city + ", CA " + zip;
+	field.value = tempstring.toUpperCase();
+	form.appendChild(field);
     }
     // get library jurisdiction code from city
     var field = document.createElement("input");
@@ -372,23 +372,23 @@ function postproc_form() {
     form.appendChild(field);
     // teens / adults only: transform identification
     if ((window.age_range == 3)|(window.age_range == 4)) {
-        var field = document.createElement("input");
-        field.name = "uuniversityID";
-        field.type = "hidden";
-        tempstring = form.elements["id_number"].value;
-        field.value = tempstring.toUpperCase();
-        form.appendChild(field);
+	var field = document.createElement("input");
+	field.name = "uuniversityID";
+	field.type = "hidden";
+	tempstring = form.elements["id_number"].value;
+	field.value = tempstring.toUpperCase();
+	form.appendChild(field);
     }
     // children only: transform identification
     if (window.age_range == 2) {
-        // no unique ID is gathered from a child's user info, but since
-        // millennium still needs a unique value if duplicate ID checking
-        // is enabled, we create a dummy value based on a timestamp
-        var field = document.createElement("input");
-        field.name = "uuniversityID";
-        field.type = "hidden";
-        field.value = "NOT_AN_ID_" + new Date().getTime();
-        form.appendChild(field);
+	// no unique ID is gathered from a child's user info, but since
+	// millennium still needs a unique value if duplicate ID checking
+	// is enabled, we create a dummy value based on a timestamp
+	var field = document.createElement("input");
+	field.name = "uuniversityID";
+	field.type = "hidden";
+	field.value = "NOT_AN_ID_" + new Date().getTime();
+	form.appendChild(field);
     }
     // store extra info in overloaded department/org-id field...
     var field = document.createElement("input");
@@ -396,33 +396,33 @@ function postproc_form() {
     field.type = "hidden";
     // type of identification given (guardian's ID for child patrons)
     if ($('input:radio[name=id_type]:checked').val() != undefined) {
-        t = $('input:radio[name=id_type]:checked').val().toUpperCase() + " ";
-        field.value = "|t " + t;
+	t = $('input:radio[name=id_type]:checked').val().toUpperCase() + " ";
+	field.value = "|t " + t;
     }
     // children only: transform parent/guardian info
     if (window.age_range == 2) {
-        // guardian identification
-        s = form.elements["guardian_id_number"].value;
-        if (s.length > 0) {
-            i = "|i " + form.elements["guardian_id_number"].value.toUpperCase() + " ";
-            field.value = field.value + i;
-        }
-        // school
-        if (form.elements["school"].value != "") {
-            s = "|s " + form.elements["school"].value.toUpperCase() + " ";
-            field.value = field.value + s;
-        }
-        // guardian name
-        nf = form.elements["guardian_first_name"].value.toUpperCase();
-        nl = form.elements["guardian_last_name"].value.toUpperCase();
-        nm = form.elements["guardian_middle_initial"].value.toUpperCase();
-        n = "|n " + nl + ", " + nf + " " + nm + " ";
-        field.value = field.value + n;
+	// guardian identification
+	s = form.elements["guardian_id_number"].value;
+	if (s.length > 0) {
+	    i = "|i " + form.elements["guardian_id_number"].value.toUpperCase() + " ";
+	    field.value = field.value + i;
+	}
+	// school
+	if (form.elements["school"].value != "") {
+	    s = "|s " + form.elements["school"].value.toUpperCase() + " ";
+	    field.value = field.value + s;
+	}
+	// guardian name
+	nf = form.elements["guardian_first_name"].value.toUpperCase();
+	nl = form.elements["guardian_last_name"].value.toUpperCase();
+	nm = form.elements["guardian_middle_initial"].value.toUpperCase();
+	n = "|n " + nl + ", " + nf + " " + nm + " ";
+	field.value = field.value + n;
     }
     // transform language preference
     if (!(form.elements["language"].value.toUpperCase() in {"ENGLISH":"", "":""})) {
-        l = "|l " + form.elements["language"].value.toUpperCase();
-        field.value = field.value + l;
+	l = "|l " + form.elements["language"].value.toUpperCase();
+	field.value = field.value + l;
     }
     form.appendChild(field); // done with ddepartment field
     // set pcode1 based on patron age range
@@ -432,14 +432,14 @@ function postproc_form() {
     field.type = "hidden";
     switch(window.age_range) {
     case 2:
-        field.value = "3"; // child
-        break;
+	field.value = "3"; // child
+	break;
     case 3:
-        field.value = "2"; // teen
-        break;
+	field.value = "2"; // teen
+	break;
     case 4:
-        field.value = "1"; // adult
-        break;
+	field.value = "1"; // adult
+	break;
     }
     form.appendChild(field);
     // template name
@@ -466,40 +466,40 @@ function show_form(form_id) {
     $("#footer").show();
     switch (window.age_range) {
     case 2:
-        log("displaying child form");
-        $("#header_child").show();
-        $("#form_child").show();
-        $("#form_child").children().show();
-        $("#agreement_child").show();
-        $("#guardian_wrapper").show();
-        $("#guardian_wrapper").children().show();
-        set_required(["#last_name", "#first_name",
-                      "#home_address", "#home_city", "#home_zip", "#phone",
-                      "#guardian_last_name", "#guardian_first_name",
-                      "#agreement_box"]);
-        break;
+	log("displaying child form");
+	$("#header_child").show();
+	$("#form_child").show();
+	$("#form_child").children().show();
+	$("#agreement_child").show();
+	$("#guardian_wrapper").show();
+	$("#guardian_wrapper").children().show();
+	set_required(["#last_name", "#first_name",
+		      "#home_address", "#home_city", "#home_zip", "#phone",
+		      "#guardian_last_name", "#guardian_first_name",
+		      "#agreement_box"]);
+	break;
     case 3:
-        log("displaying teen form");
-        $("#header_teen").show();
-        $("#form_teen_adult").show();
-        $("#form_teen_adult").children().show();
-        $("#agreement_teen_adult").show();
-        set_required(["#last_name", "#first_name",
-                      "#home_address", "#home_city", "#home_zip", "#phone",
-                      "#guardian_last_name", "#guardian_first_name",
-                      "#email", "#id_number", "#agreement_box"]);
-        break;
+	log("displaying teen form");
+	$("#header_teen").show();
+	$("#form_teen_adult").show();
+	$("#form_teen_adult").children().show();
+	$("#agreement_teen_adult").show();
+	set_required(["#last_name", "#first_name",
+		      "#home_address", "#home_city", "#home_zip", "#phone",
+		      "#guardian_last_name", "#guardian_first_name",
+		      "#email", "#id_number", "#agreement_box"]);
+	break;
     case 4:
-        log("displaying adult form");
-        $("#header_adult").show();
-        $("#form_teen_adult").show();
-        $("#form_teen_adult").children().show();
-        $("#agreement_teen_adult").show();
-        set_required(["#last_name", "#first_name",
-                      "#home_address", "#home_city", "#home_zip", "#phone",
-                      "#guardian_last_name", "#guardian_first_name",
-                      "#email", "#id_number", "#agreement_box"]);
-        break;
+	log("displaying adult form");
+	$("#header_adult").show();
+	$("#form_teen_adult").show();
+	$("#form_teen_adult").children().show();
+	$("#agreement_teen_adult").show();
+	set_required(["#last_name", "#first_name",
+		      "#home_address", "#home_city", "#home_zip", "#phone",
+		      "#guardian_last_name", "#guardian_first_name",
+		      "#email", "#id_number", "#agreement_box"]);
+	break;
     }
     $(".required").show(250);
 }
@@ -507,7 +507,7 @@ function show_form(form_id) {
 // add a star symbol to the beginning of an id
 function set_required(required) {
     for (i=0; i<required.length; i++) {
-        $(required[i]).prepend("<span class=\"required\">&#9733;</span>");
+	$(required[i]).prepend("<span class=\"required\">&#9733;</span>");
     }
 }
 
@@ -518,15 +518,15 @@ function debug_print_form() {
     log("nfirst: " + form.elements["nfirst"].value);
     // middle name optional
     if (form.elements["middle_initial"].value != "") {
-        log("nmiddle: " + form.elements["nmiddle"].value);
+	log("nmiddle: " + form.elements["nmiddle"].value);
     }
     log("nlast: " + form.elements["nlast"].value);
     log("stre_aaddress: " + form.elements["stre_aaddress"].value);
     log("city_aaddress: " + form.elements["city_aaddress"].value);
     // mailing address optional
     if (form.elements["mailing_address"].value != "") {
-        log("stre_haddress2: " + form.elements["stre_haddress2"].value);
-        log("city_haddress2: " + form.elements["city_haddress2"].value);
+	log("stre_haddress2: " + form.elements["stre_haddress2"].value);
+	log("city_haddress2: " + form.elements["city_haddress2"].value);
     }
     log("F046pcode3: " + form.elements["F046pcode3"].value);
     log("tphone1: " + form.elements["tphone1"].value);
@@ -540,10 +540,10 @@ function getQueryVariable(variable) {
     var query = window.location.search.substring(1);
     var vars = query.split("&");
     for (var i=0;i<vars.length;i++) {
-        var pair = vars[i].split("=");
-        if (pair[0] == variable) {
-            return pair[1];
-        }
+	var pair = vars[i].split("=");
+	if (pair[0] == variable) {
+	    return pair[1];
+	}
     }
 }
 
@@ -555,11 +555,11 @@ function reset_form() {
 function calc_age(today, birthday) {
     var age = today[0] - birthday[0]
     if (today[1] < birthday[1]) {
-        age = age-1
+	age = age-1
     } else if (today[1] == birthday[1]) {
-        if (today[2] < birthday[2]) {
-            age = age-1
-        }
+	if (today[2] < birthday[2]) {
+	    age = age-1
+	}
     }
     return age;
 }
@@ -592,7 +592,7 @@ function pad(n, width, z) {
 
 function log(m) {
     if (typeof console != "undefined") {
-        console.log(m)
+	console.log(m)
     }
 }
 
@@ -602,27 +602,27 @@ function toTitleCase(str) {
 
 function acceptable_id() {
     a = ["Driver's License",
-         "State Issued ID Card",
-         "Student ID Card",
-         "Permanent Resident Card",
-         "Matricula Consular ID Card",
-         "Oakland City ID/Municipal City ID",
-         "Passport"];
+	 "State Issued ID Card",
+	 "Student ID Card",
+	 "Permanent Resident Card",
+	 "Matricula Consular ID Card",
+	 "Oakland City ID/Municipal City ID",
+	 "Passport"];
     if (window.age_range == 2) {
-        who = "children";
+	who = "children";
     }
     if (window.age_range == 3) {
-        who = "teenagers";
+	who = "teenagers";
     }
     if (window.age_range == 4) {
-        who = "adults";
+	who = "adults";
     }
     s = "<div><h3>Acceptable I.D. for " + who + " includes:</h3><ul>";
     for (i=0; i<a.length; i++) {
-        s = s + "<li>" + a[i] + "</li>";
+	s = s + "<li>" + a[i] + "</li>";
     }
     s = s + "</ul><br /></div><div style=\"text-align:center\">" +
-        "<button onclick=\"lightbox_close();\">Close</button></div>";
+	"<button onclick=\"lightbox_close();\">Close</button></div>";
     return s;
 }
 
