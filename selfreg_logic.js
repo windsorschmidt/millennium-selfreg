@@ -118,7 +118,7 @@ function classify_age(birth_date) {
 	return 0;
     } else if (age < 5) {
 	log("not old enough to register");
-	alert("Applicants must be at least 5 years old to register for a library card. Please check the date or seek assistance from a librarian.");
+	alert("Applicants must be at least 5 years old to register for a library card online. If your child is under 5 but is in Kindergarten or TK, please seek assistance from library staff.");
 	return 1;
     } else if (age < 13) {
 	log("classified as a child patron");
