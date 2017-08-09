@@ -119,13 +119,13 @@ tdata.disability_note = {
     chi:"如果你是殘障人士，請向圖書館職員索取殘障讀者專用特別服務申請表。"
 };
 tdata.pickup_note_adult = {
-    eng:"Pick up your library card in person from your nearest branch within 30 days of applying with the following documents:<ol><li>Photo ID</li><li>Proof of address</li></ol>",
-    spa:"Recoja su tarjeta de la biblioteca en persona en su sucursal más cercano en los próximos 30 días y traiga los siguientes documentos:<ol><li>Identificación fotográfica</li><li>Prueba de su dirección actual</li></ol>",
-    chi:"請在填寫表格後三十日內，由本人帶同以下文件到附近圖書館分館領取你的圖書証:<ol><li>附有照片的身份証</li><li>地址証明</li></ol>"
+    eng:"Pick up your library card in person from your nearest branch within 30 days of applying with the following documents:<ol><li>Photo ID</li></ol>",
+    spa:"Recoja su tarjeta de la biblioteca en persona en su sucursal más cercano en los próximos 30 días y traiga los siguientes documentos:<ol><li>Identificación fotográfica</li></ol>",
+    chi:"請在填寫表格後三十日內，由本人帶同以下文件到附近圖書館分館領取你的圖書証:<ol><li>附有照片的身份証</li></ol>"
 };
 tdata.pickup_note_teen = {
-    eng:"Pick up your library card in person from your nearest library branch within 30 days of applying with your photo ID. Proof of address is required with ID for full access to our services, but we accept multiple forms of identification.  If no ID or proof of address is available, a parent/guardian signature on a <a href=\"http://www.oaklandlibrary.org/sites/default/files/uploads/OPL_Card_App_Eng_Teens_0.pdf\">paper application</a> is also acceptable.",
-    spa:"Recoja su tarjeta de la biblioteca en persona en su sucursal más cercano en los próximos 30 días y traiga identificación fotográfica.  Un comprobante de domicilio es necesario para tener acceso a todos nuestros servicios, pero aceptamos una variedad de formas de identificación.  Si no tiene identificación o comprobante de domicilio es disponibles, padres de familia/ guardianes pueden firmar una <a>solicitud <a href=\"http://www.oaklandlibrary.org/sites/default/files/uploads/OPL_Card_App_Span_Teen.pdf\">solicitud en papel</a> que también se acepta.",
+    eng:"Pick up your library card in person from your nearest library branch within 30 days of applying with your photo ID. If no ID is available, a parent/guardian signature on a <a href=\"http://www.oaklandlibrary.org/sites/default/files/uploads/OPL_Card_App_Eng_Teens_0.pdf\">paper application</a> is also acceptable.",
+    spa:"Recoja su tarjeta de la biblioteca en persona en su sucursal más cercano en los próximos 30 días y traiga identificación fotográfica. Si no tiene identificación es disponibles, padres de familia/ guardianes pueden firmar una <a>solicitud <a href=\"http://www.oaklandlibrary.org/sites/default/files/uploads/OPL_Card_App_Span_Teen.pdf\">solicitud en papel</a> que también se acepta.",
     chi:"請在填寫表格後三十日內，帶同附有照片的身份証到附近圖書館分館領取你的圖書証。若不能提供身份証明文件，請填寫由家長/法定監護人簽名的<a href=\"http://www.oaklandlibrary.org/sites/default/files/uploads/OPL_Card_App_Eng_Teens_0.pdf\">書面申請表格</a>。"
 };
 tdata.pickup_note_child = {
@@ -414,9 +414,9 @@ tdata.thanks = {
     chi:"謝謝你的申請!"
 };
 tdata.confirm_note = {
-    eng:"<p>Please <strong>print this confirmation</strong> and bring it with the following documents to any Oakland Public Library within 30 days to pick up your card:</p><ul><li>Photo ID</li><li>Proof of address</li></ul><p> For children under 13, instead, a parent/Legal Guardian and child must both be present for the child to receive the card.</p>",
-    spa:"<p>Favor de<strong>imprimir esta confirmación</strong> y llévela con sus documentos cualquier sucursal de la Biblioteca Publica de Oakland durante los próximos 30 días para recibir su tarjeta:</p><ul><li>Identificación con foto</li><li>Prueba de domicilio</li></ul><p>Niños menores de 13 años de edad, el padre/guardian y el niño tiene que estar presente para recibir la tarjeta. </p>",
-    chi:"<p>請<strong>打印此確認​</ strong>，在填寫表格後三十日內，帶同以下文件到附近圖書館分館領取你的圖書証：</ p><ul> <li>附有照片的身份證</li> <li>地址證明</li></ ul><p>13歲以下兒童，父母/法定監護人和孩子都必須親身領取孩子的圖書証</p>"
+    eng:"<p>Please <strong>print this confirmation</strong> and bring it with the following documents to any Oakland Public Library within 30 days to pick up your card:</p><ul><li>Photo ID</li></ul><p> For children under 13, instead, a parent/Legal Guardian and child must both be present for the child to receive the card.</p>",
+    spa:"<p>Favor de<strong>imprimir esta confirmación</strong> y llévela con sus documentos cualquier sucursal de la Biblioteca Publica de Oakland durante los próximos 30 días para recibir su tarjeta:</p><ul><li>Identificación con foto</li></ul><p>Niños menores de 13 años de edad, el padre/guardian y el niño tiene que estar presente para recibir la tarjeta.</p>",
+    chi:"<p>請<strong>打印此確認​</ strong>，在填寫表格後三十日內，帶同以下文件到附近圖書館分館領取你的圖書証：</p><ul><li>附有照片的身份證</li></ul><p>13歲以下兒童，父母/法定監護人和孩子都必須親身領取孩子的圖書証</p>"
 };
 tdata.button_print = {
     eng:"Print Confirmation",
