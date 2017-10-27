@@ -129,9 +129,9 @@ tdata.pickup_note_teen = {
     chi:"請在填寫表格後三十日內，帶同附有照片的身份証到附近圖書館分館領取你的圖書証。若不能提供身份証明文件，請填寫由家長/法定監護人簽名的<a href=\"http://www.oaklandlibrary.org/sites/default/files/uploads/OPL_Card_App_Eng_Teens_0.pdf\">書面申請表格</a>。"
 };
 tdata.pickup_note_child = {
-    eng:"Parent/Legal Guardian and child must both present themselves for the child to receive the card within 30 days of applying. Alternatively, you may print and fill out a <a href=\"http://www.oaklandlibrary.org/sites/default/files/uploads/OPL_Card_App_Eng_Kids_0.pdf\">paper application</a> for the child to receive a card without parent/legal guardian present.",
-    spa:"Padres de familia/ guardián y el niño tiene que presentase para recibir la tarjeta en los próximos 30 días. O, pueden imprimir y completar la solicitud y el niño puede recibir su tarjecta sin que estén presente los padres/ guardián.",
-    chi:"家長/法定監護人和孩子在填寫申請表格後三十日內，必須一同前往圖書館領取孩子的圖書証。家長/法定監護人亦可預先填寫<a href=\"http://www.oaklandlibrary.org/sites/default/files/uploads/OPL_Card_App_Eng_Kids_0.pdf\">書面申請表格</a>，讓孩子在沒有家長的陪同下仍可辨理申請手續。"
+    eng:"Parent/Legal Guardian and child must both present themselves for the child to receive the card within 30 days of applying. Alternatively, you may print and fill out a <a href=\"http://oaklandlibrary.org/sites/default/files/uploads/children%27s%20library%20card%20application%20%28English%29%20%282-20-14%29.pdf\">paper application</a> for the child to receive a card without parent/legal guardian present.",
+    spa:"Padres de familia/ guardián y el niño tiene que presentase para recibir la tarjeta en los próximos 30 días. O, pueden imprimir y completar <a href=\"http://oaklandlibrary.org/sites/default/files/uploads/Children%27s%20Lilbrary%20Card%20Application%20-%20Spanish%20%282%29.pdf\">la solicitud</a> y el niño puede recibir su tarjecta sin que estén presente los padres/guardián.",
+    chi:"家長/法定監護人和孩子在填寫申請表格後三十日內，必須一同前往圖書館領取孩子的圖書証。家長/法定監護人亦可預先填寫<a href=\"http://oaklandlibrary.org/sites/default/files/uploads/Chinese%20-%20children%20%282%29.pdf\">書面申請表格</a>，讓孩子在沒有家長的陪同下仍可辨理申請手續。"
 };
 tdata.required = {
     eng:"required field",
@@ -414,8 +414,8 @@ tdata.thanks = {
     chi:"謝謝你的申請!"
 };
 tdata.confirm_note = {
-    eng:"<p>Please <strong>print this confirmation</strong> and bring it with the following documents to any Oakland Public Library within 30 days to pick up your card:</p><ul><li>Photo ID</li></ul><p> For children under 13, instead, a parent/Legal Guardian and child must both be present for the child to receive the card.</p>",
-    spa:"<p>Favor de<strong>imprimir esta confirmación</strong> y llévela con sus documentos cualquier sucursal de la Biblioteca Publica de Oakland durante los próximos 30 días para recibir su tarjeta:</p><ul><li>Identificación con foto</li></ul><p>Niños menores de 13 años de edad, el padre/guardian y el niño tiene que estar presente para recibir la tarjeta.</p>",
+    eng:"<p>Thanks for registering with Oakland Public Library. Please <strong>print this confirmation</strong>, if you haven't done so at registration, and bring it with you to any Oakland Public Library within 30 days to pick up your card.</p><p>For children (ages 5-12), a parent/Legal Guardian and child must both present for the child to receive the card.</p><p>If you did not register at Oakland Public Library, please contact us at (510)238-3144.</p>",
+    spa:"<p>Favor de<strong>imprimir esta confirmación</strong> y llévela con sus documentos cualquier sucursal de la Biblioteca Publica de Oakland durante los próximos 30 días para recibir su tarjeta:</p><p>Niños menores de 13 años de edad, el padre/guardian y el niño tiene que estar presente para recibir la tarjeta.</p>",
     chi:"<p>請<strong>打印此確認​</ strong>，在填寫表格後三十日內，帶同以下文件到附近圖書館分館領取你的圖書証：</p><ul><li>附有照片的身份證</li></ul><p>13歲以下兒童，父母/法定監護人和孩子都必須親身領取孩子的圖書証</p>"
 };
 tdata.button_print = {

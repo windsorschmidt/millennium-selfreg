@@ -178,7 +178,11 @@ function validate_form() {
     // phone number
     var r = /^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/;
     if (!r.test(($('input[name=phone]').val()))) {
-        add_error("#phone", "phone");
+        // Defer action if we don't have a valid phone number, since we allow
+        // at least one of { phone, email address } on teen/adult forms.
+        var has_phone = false;
+        log("warning: no valid phone number");
+        // add_error("#phone", "phone");
     }
     // street address
     s = $('input[name=home_address]').val()
@@ -200,7 +204,12 @@ function validate_form() {
         // email address
         var r = /\S+@\S+\.\S+/;
         if (!r.test($('input[name=email]').val())) {
-            add_error("#email", "error_email");
+            // If a teen/adult has entered a phone number, then we don't need
+            // a valid email address to validate the form
+            if (has_phone == false) {
+                add_error("#phone", "phone");
+                add_error("#email", "error_email");
+            }
         }
         // identification
         s = $('input:radio[name=id_type]:checked').val();
@@ -214,6 +223,11 @@ function validate_form() {
     }
     // children only
     if (window.age_range == 2) {
+        if (has_phone == false) {
+            // Children aren't asked for email, so without a phone number
+            // entered, the form is invalid
+            add_error("#phone", "phone");
+        }
         // guardian last name
         s = $('input[name=guardian_last_name]').val()
         if (s.length == 0) {
