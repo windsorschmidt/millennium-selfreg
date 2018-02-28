@@ -159,7 +159,7 @@ tdata.middle_initial = {
     chi:"中間名簡寫"
 };
 tdata.home_address = {
-    eng:"Home Address",
+    eng:"Address",
     spa:"Dirección",
     chi:"住所地址"
 };
@@ -183,33 +183,13 @@ tdata.zip = {
     spa:"CA Código Postal",
     chi:"郵區號碼"
 };
-tdata.mailing_address = {
-    eng:"Mailing Address (if different from home address)",
-    spa:"Dirección Para Correspondencia (solo si se diferente al de su casa)",
-    chi:"通信地址 (若與住所地址不同)"
-};
-tdata.mailing_street = {
-    eng:"Street",
-    spa:"Calle con Número ",
-    chi:"街名"
-};
-tdata.mailing_apt = {
-    eng:"Apt.#",
-    spa:"Apt. #",
-    chi:"房號"
-};
-tdata.mailing_city = {
-    eng:"City",
-    spa:"Ciudad ",
-    chi:"巿名"
-};
-tdata.mailing_zip = {
-    eng:"CA. Zip Code",
-    spa:"CA Código Postal",
-    chi:"郵區號碼"
+tdata.phone_email = {
+    eng:"Phone & Email",
+    spa:"Teléfono y Correo Electrónico",
+    chi:"電話 和 電郵地址"
 };
 tdata.phone = {
-    eng:"Telephone",
+    eng:"Phone",
     spa:"Teléfono",
     chi:"電話"
 };
@@ -219,7 +199,7 @@ tdata.phone_note = {
     chi:"包括地區號碼"
 };
 tdata.email = {
-    eng:"E-Mail Address",
+    eng:"Email",
     spa:"Correo Electrónico",
     chi:"電郵地址"
 };

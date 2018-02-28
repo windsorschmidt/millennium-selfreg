@@ -9,6 +9,9 @@
 //    - calls postproc_form() to transform data to iii field format
 //    - returns true to allow http POST, otherwise fails
 
+// require teens and adults to submit an ID card number?
+var require_id_teen_adult = false;
+
 window.document.onkeydown = function (e) {
     if (!e) {
         e = event;
@@ -64,11 +67,6 @@ $(document).ready(function() {
 
     // replace all string tokens with those of current language
     replace_language();
-
-    // // testing
-    // lang = "eng";
-    // window.age_range = 2;
-    // show_form("#child_form");
 });
 
 // validate user input in age fields when user clicks submit
@@ -207,18 +205,20 @@ function validate_form() {
             // If a teen/adult has entered a phone number, then we don't need
             // a valid email address to validate the form
             if (has_phone == false) {
-                add_error("#phone", "phone");
+                add_error("#phone", "error_phone");
                 add_error("#email", "error_email");
             }
         }
         // identification
-        s = $('input:radio[name=id_type]:checked').val();
-        if (!s) {
-            add_error("#id_types", "error_id_types");
-        }
-        s = $('input[name=id_number]').val()
-        if (s.length == 0) {
-            add_error("#id_number", "error_id_number");
+        if (require_id_teen_adult == true) {
+            s = $('input:radio[name=id_type]:checked').val();
+            if (!s) {
+                add_error("#id_types", "error_id_types");
+            }
+            s = $('input[name=id_number]').val()
+            if (s.length == 0) {
+                add_error("#id_number", "error_id_number");
+            }
         }
     }
     // children only

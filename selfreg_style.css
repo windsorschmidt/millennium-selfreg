@@ -115,12 +115,13 @@ input[type=radio] {
 .whitebutton {
   font-size: 1.2em;
   color: #222;
+  background-color: #ccc;
   border: 1px solid #777;
   border-radius: 2px;
   padding: 6px 16px 6px 16px;
 }
 .whitebutton:hover {
-  background-color: #ccc;
+  background-color: #aaa;
 }
 .redbutton {
   font-size: 1.2em;
