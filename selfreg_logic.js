@@ -339,28 +339,30 @@ function postproc_form() {
     field.value = tempstring.toUpperCase();
     form.appendChild(field);
     // transform mailing address
-    log("mailing: " + form.elements["mailing_address"].value);
-    if (form.elements["mailing_address"].value != "") {
-        var field = document.createElement("input");
-        field.name = "stre_haddress2";
-        field.type = "hidden";
-        address = form.elements["mailing_address"].value;
-        apt = form.elements["mailing_apt"].value;
-        if (apt != "") {
-            tempstring = address +  " APT " + apt;
-        } else {
-            tempstring = address;
+    if (document.getElementById("mailing_address")) {
+        if (form.elements["mailing_address"].value != "") {
+            log("mailing: " + form.elements["mailing_address"].value);
+            var field = document.createElement("input");
+            field.name = "stre_haddress2";
+            field.type = "hidden";
+            address = form.elements["mailing_address"].value;
+            apt = form.elements["mailing_apt"].value;
+            if (apt != "") {
+                tempstring = address +  " APT " + apt;
+            } else {
+                tempstring = address;
+            }
+            field.value = tempstring.toUpperCase();
+            form.appendChild(field);
+            var field = document.createElement("input");
+            field.name = "city_haddress2";
+            field.type = "hidden";
+            city = form.elements["mailing_city"].value;
+            zip = form.elements["mailing_zip"].value;
+            tempstring = city + ", CA " + zip;
+            field.value = tempstring.toUpperCase();
+            form.appendChild(field);
         }
-        field.value = tempstring.toUpperCase();
-        form.appendChild(field);
-        var field = document.createElement("input");
-        field.name = "city_haddress2";
-        field.type = "hidden";
-        city = form.elements["mailing_city"].value;
-        zip = form.elements["mailing_zip"].value;
-        tempstring = city + ", CA " + zip;
-        field.value = tempstring.toUpperCase();
-        form.appendChild(field);
     }
     // get library jurisdiction code from city
     var field = document.createElement("input");
@@ -531,16 +533,20 @@ function debug_print_form() {
     log("F051birthdate: " + form.elements["F051birthdate"].value);
     log("nfirst: " + form.elements["nfirst"].value);
     // middle name optional
-    if (form.elements["middle_initial"].value != "") {
-        log("nmiddle: " + form.elements["nmiddle"].value);
+    if (document.getElementById("middle_initial")) {
+        if (form.elements["middle_initial"].value != "") {
+            log("nmiddle: " + form.elements["nmiddle"].value);
+        }
     }
     log("nlast: " + form.elements["nlast"].value);
     log("stre_aaddress: " + form.elements["stre_aaddress"].value);
     log("city_aaddress: " + form.elements["city_aaddress"].value);
     // mailing address optional
-    if (form.elements["mailing_address"].value != "") {
-        log("stre_haddress2: " + form.elements["stre_haddress2"].value);
-        log("city_haddress2: " + form.elements["city_haddress2"].value);
+    if (document.getElementById("mailing_address")) {
+        if (form.elements["mailing_address"].value != "") {
+            log("stre_haddress2: " + form.elements["stre_haddress2"].value);
+            log("city_haddress2: " + form.elements["city_haddress2"].value);
+        }
     }
     log("F046pcode3: " + form.elements["F046pcode3"].value);
     log("tphone1: " + form.elements["tphone1"].value);
