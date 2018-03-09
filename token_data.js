@@ -209,8 +209,8 @@ tdata.pref_lang = {
     chi:"首選語言"
 };
 tdata.pref_lang_note = {
-    eng:"If you prefer to read in a language other than English, please indicate that language here",
-    spa:"Si usted prefiere leer en otro idioma que no sea inglés, favor de indicarlo",
+    eng:"If you prefer to read in a language other than English, please indicate that language here.",
+    spa:"Si usted prefiere leer en otro idioma que no sea inglés, favor de indicarlo.",
     chi:"若你選擇閱讀英文以外的語文，請在這裏填寫"
 };
 tdata.parent_info = {

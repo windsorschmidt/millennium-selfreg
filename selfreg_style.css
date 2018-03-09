@@ -25,6 +25,7 @@ h1 {
   vertical-align: middle;
 }
 h3 {
+  margin-top: 1.5em;
   border-bottom: 1px dotted #ccc;
   font-size: 1.1em;
 }
