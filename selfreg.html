@@ -175,8 +175,8 @@
         </div>
         <div id="footer"  class="hidden">
           <p>
-            <input id="msg_submit" type="submit" class="whitebutton">
-            <input id="msg_start_over" type="button" class="yellowbutton" onclick="reset_form();">
+            <input id="msg_submit" type="submit" class="yellowbutton">
+            <input id="msg_start_over" type="button" class="whitebutton" onclick="if (window.confirm(msgval('restart'))) { reset_form(); }">
           </p>
         </div>
       </form>

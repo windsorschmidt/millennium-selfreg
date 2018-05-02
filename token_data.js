@@ -408,3 +408,8 @@ tdata.button_close = {
     spa:"Cerar / Close / 關閉",
     chi:"關閉 / Close / Cerar"
 };
+tdata.restart = {
+    eng:"Are you sure you want to start over?",
+    spa:"¿Estás seguro de que quieres comenzar de nuevo?",
+    chi:"你确定要重新开始吗?"
+};
